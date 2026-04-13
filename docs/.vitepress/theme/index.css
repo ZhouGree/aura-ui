@@ -1,0 +1,176 @@
+/* :root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-lightest: #bcc0ff;
+  --vp-c-brand-dark: #535bf2;
+  --vp-c-brand-darker: #454ce1;
+  --demoblock-border: #e7e7e7;
+  --vp-code-block-bg: #f9fafb;
+} */
+
+/* .demo-block .meta {
+  background-color: var(--vp-code-block-bg);
+} */
+/* html.dark {
+  --vp-code-block-bg: var(--vp-code-block-bg);
+} */
+
+/* .vp-doc {    color: var(--vp-c-brand);
+  background-color: var(--el-bg-color);
+} */
+/* .aside .outline-link.active {
+  color: var(--vp-c-brand);
+}
+.aside .outline-link:hover {
+  color: var(--vp-c-brand);
+}
+.VPSidebarItem .item .link .text el-tag {
+  margin-left: 10px;
+  color: #409eff;
+}
+.vp-doc .au_detail th,
+.vp-doc .au_detail td {
+  border: none;
+  background-color: var(--el-bg-color);
+}
+.vp-doc .au_detail table {
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 2px;
+  margin: 0;
+  overflow-x: inherit;
+}
+.vp-doc .au_detail tr:nth-child(2n) {
+  background-color: var(--el-bg-color);
+}
+
+.vp-doc .au-table tr {
+  border-top: none;
+}
+.vp-doc .au-table th,
+.vp-doc .au-table td {
+  border: none;
+  background-color: var(--el-bg-color);
+}
+.vp-doc .au-table table {
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 2px;
+  margin: 0;
+  overflow-x: inherit;
+}
+.vp-doc .au-table tr:nth-child(2n) {
+  background-color: var(--el-bg-color);
+}
+
+.vp-doc .au-table tr {
+  border-top: none;
+}
+.VPContent .VPDoc .container .content {
+  padding: 0;
+}
+.VPNav {
+  z-index: 41 !important;
+}
+.VPSidebar {
+  z-index: 40 !important;
+}
+.VPSidebar.open {
+  z-index: 42 !important;
+}
+.VPContent .VPDoc.has-aside .content-container {
+  max-width: 1200px;
+}
+.vp-doc ul,
+.vp-doc ol {
+  padding-left: 0;
+} */
+
+/* pre{
+  background: transparent;
+} */
+
+@import "./hero.css";
+@import "./table.css";
+@import "./navbar.css";
+@import "./sidebar.css";
+@import "./aside.css";
+
+:root {
+  --au-primary: #6c7a89;
+  --au-primary-light: #8a9ba8;
+  --au-primary-soft: #e8ecf0;
+  --au-secondary: #8aa39b;
+
+  --au-bg: #f5f7fa;
+  --au-white: #ffffff;
+  --au-border: #e1e6ed;
+
+  --au-text-primary: #4a5568;
+  --au-text-secondary: #8595a6;
+
+  --au-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --au-radius-card: 16px;
+
+  /* 适配顶部导航高度 */
+  --header-height: 64px;
+  --vp-nav-height: 64px;
+}
+
+html.dark {
+  --au-primary: #8a9ba8;
+  --au-primary-light: #a5b6c3;
+  --au-primary-soft: #3a4a5a;
+
+  --au-bg: #1e2a36;
+  --au-white: #2d3e4f;
+  --au-border: #4a5b6e;
+
+  --au-text-primary: #f0ede8;
+  --au-text-secondary: #c5c0b5;
+
+  --au-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 全局布局重置（让顶部导航 100% 贴合你的效果图） */
+.VPNavBar {
+  height: 64px !important;
+  line-height: 64px !important;
+}
+
+.VPNav {
+  height: 64px !important;
+}
+
+/* 内容布局正常化（不破坏滚动、不挤压顶部） */
+.VPHome,
+.vp-doc,
+.VPPage,
+.VPContent .VPDoc,
+.VPContent .container {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 全局默认字体、颜色统一 */
+body {
+  background-color: var(--au-bg) !important;
+  color: var(--au-text-primary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif !important;
+}
+
+/* 滚动条美化（统一莫兰迪风格） */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--au-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--au-bg);
+}

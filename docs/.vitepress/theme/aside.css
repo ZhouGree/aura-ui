@@ -1,0 +1,29 @@
+/* 右侧大纲容器 */
+.VPDoc .aside {
+  background-color: var(--au-bg) !important;
+  border-left: 1px solid var(--au-border) !important;
+}
+
+/* 大纲标题 */
+.VPDocAsideOutline .outline-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--au-text-primary) !important;
+  padding: 8px !important;
+  margin: 0 !important;
+}
+/* 大纲项 */
+.VPDocOutlineItem .outline-link {
+  font-size: 13px !important;
+  color: var(--au-text-secondary) !important;
+  padding: 3px 8px !important;
+  border-left: 2px solid transparent !important;
+}
+/* 大纲选中态 */
+.VPDocOutlineItem .outline-link.active {
+  color: var(--au-primary) !important;
+  border-left-color: var(--au-primary) !important;
+}
+.VPDocAsideOutline .outline-marker {
+  background-color: transparent;
+}

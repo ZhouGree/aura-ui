@@ -1,0 +1,68 @@
+@use "sass:map";
+@use "./vars" as *;
+
+// 新增：莫兰迪视觉通用mixins
+@mixin with-bg {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color var(--el-transition-duration),
+    background-color var(--el-transition-duration-fast);
+}
+
+@mixin with-border {
+  border-bottom: 1px solid var(--border-color);
+}
+
+// 新增：莫兰迪卡片样式（复用visual/show的卡片效果）
+@mixin au-card {
+  background: var(--au-white);
+  border-radius: var(--au-radius-card);
+  box-shadow: var(--au-shadow-sm);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// 新增：莫兰迪按钮基础样式
+@mixin au-btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+// 响应式混合宏（修复原逻辑错误 + 适配视觉稿）
+$breakpoints: (
+  "sm": #{$breakpoint-sm},
+  "md": #{$breakpoint-md},
+  "lg": #{$breakpoint-lg},
+  "xlg": #{$breakpoint-xlg},
+  "xxl": #{$breakpoint-xxl},
+  "max": #{$breakpoint-max}) !default;
+
+// 修复：原逻辑判断错误 + 改为max-width（匹配视觉稿的移动端适配）
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: #{map.get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+// 新增：小屏高度响应式（适配visual.html的max-height:700px）
+@mixin respond-to-height($height: $au-breakpoint-small-height) {
+  @media screen and (max-height: #{$height}) {
+    @content;
+  }
+}
+
+// 新增：获取间距变量的快捷mixins
+@function au-spacing($size) {
+  @return map-get($au-spacing, $size
+);
+}

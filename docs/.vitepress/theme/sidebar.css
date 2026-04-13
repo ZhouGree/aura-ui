@@ -1,0 +1,45 @@
+/* 左侧侧边栏容器 */
+.VPSidebar {
+  background-color: var(--au-white) !important;
+  border-right: 1px solid var(--au-border) !important;
+}
+/* 分组标题样式 */
+.VPSidebar .item h2 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--au-text-primary) !important;
+  margin: 10px 0 4px 8px !important;
+}
+/* 菜单项样式 */
+.VPSidebarItem {
+  font-size: 14px !important;
+  color: red !important;
+  padding: 4px 8px !important;
+  border-radius: 2px !important;
+  margin: 1px 4px !important;
+}
+.VPSidebarItem .items .item {
+  padding: 4px 8px !important;
+  border-radius: 2px !important;
+  margin: 1px 4px !important;
+}
+.VPSidebarItem .item p {
+  color: var(--au-text-secondary) !important;
+  font-size: 14px !important;
+}
+/* 选中态样式 */
+.VPSidebarItem.is-active .items .item {
+  background-color: var(--au-primary-soft) !important;
+  color: var(--au-primary) !important;
+  font-weight: 500 !important;
+}
+.VPSidebarItem.is-active {
+  background-color: var(--au-primary-soft) !important;
+}
+.VPSidebarItem.is-active p {
+  color: var(--au-primary) !important;
+  font-weight: 600 !important;
+}
+.VPSidebarItem.is-active .item .indicator {
+  border-left: 4px solid var(--au-primary) !important;
+}
