@@ -1,28 +1,20 @@
 # Aura-UI
 
-## [Vue2 基于 Element-ui 基础组件传送门](https://github.com/wocwin/t-ui)
-
-> 基于 Element-ui 二次封装基础组件地址
-
-## [AuraUI 使用 Demo 项目](https://github.com/wocwin/wocwin-admin)
-
-> `aura-admin`是基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源的一套后台管理模板；此项目全面使用了`Aura-UI`二次封装基础组件库
-
 ## 介绍
 
 > 基于 vue3+ ts+ Element-plus 二次封装组件
 
-这是我在学习 Vue3 中基于[Element-plus](https://element-plus.org/zh-CN/) 二次封装基础组件文档，希望对你有用。可查看 [详细组件案例文档](https://wocwin.github.io/t-ui-plus/) 预览
+这是我在学习 Vue3 中基于[Element-plus](https://element-plus.org/zh-CN/) 二次封装基础组件文档，希望对你有用。可查看 [详细组件案例文档](https://zhougree.github.io/aura-ui/) 预览
 
 <p align="center">
   <a href="https://github.com/vuejs/vue" target="_blank">
     <img src="https://img.shields.io/badge/vue-3.2.36-brightgreen.svg" alt="vue3">
   </a>
   <a href="https://gitee.com/wocwin/t-ui-plus/stargazers" target="_blank">
-    <img src="https://gitee.com/wocwin/t-ui-plus/badge/star.svg?theme=dark" alt="t-ui-plus">
+    <img src="https://gitee.com/wocwin/t-ui-plus/badge/star.svg?theme=dark" alt="aura-ui">
   </a>
-   <a href="https://github.com/wocwin/t-ui-plus/stargazers" target="_blank">
-    <img src="https://img.shields.io/github/stars/wocwin/t-ui-plus.svg" alt="t-ui-plus">
+   <a href="https://github.com/ZhouGree/aura-ui/stargazers" target="_blank">
+    <img src="https://img.shields.io/github/stars/wocwin/t-ui-plus.svg" alt="aura-ui">
   </a>
    <a href="https://www.npmjs.com/package/@wocwin/t-ui-plus" target="_blank">
       <img alt="npm" src="https://img.shields.io/npm/v/@wocwin/t-ui-plus.svg" />
@@ -103,7 +95,7 @@ import "aura-ui/lib/style.css"
   <script src="https://unpkg.com/vue@3"></script>
   <!-- Import component library -->
   <script src="https://unpkg.com/element-plus"></script>
-  <!-- 3. 引入t-ui-plus的组件库 -->
+  <!-- 3. 引入aura-ui的组件库 -->
   <script src="https://unpkg.com/@wocwin/t-ui-plus@latest"></script>
 </head>
 <body>
@@ -134,25 +126,25 @@ import "aura-ui/lib/style.css"
 | :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | AuLayoutPage              | 布局页面                                                                                                                                                       |
 | AuLayoutPageItem          | 布局页面子项                                                                                                                                                   |
-| AuAdaptivePage            | [一屏组件](https://wocwin.github.io/t-ui-plus/components/AuAdaptivePage/base.html?_blank)（继承 AuTable 及 AuQueryCondition 组件的所有属性、事件、插槽、方法） |
-| AuQueryCondition          | [条件查询组件](https://wocwin.github.io/t-ui-plus/components/AuQueryCondition/base.html?_blank)                                                                |
-| AuTable                   | [表格组件](https://wocwin.github.io/t-ui-plus/components/AuTable/base.html?_blank)                                                                             |
-| Virtualized AuTable       | [虚拟列表](https://wocwin.github.io/t-ui-plus/components/AuTableVirtual/base.html?_blank)                                                                      |
-| AuForm                    | [表单组件](https://wocwin.github.io/t-ui-plus/components/AuForm/base.html?_blank)                                                                              |
-| AuSelectTable             | [下拉选择表格组件](https://wocwin.github.io/t-ui-plus/components/AuSelectTable/base.html?_blank)                                                               |
-| Virtualized AuSelectTable | [下拉选择虚拟表格组件](https://wocwin.github.io/t-ui-plus/components/multipleVirtual/base.html?_blank)                                                         |
-| AuSelectIcon              | [图标选择组件](https://wocwin.github.io/t-ui-plus/components/AuSelectIcon/base.html?_blank)                                                                    |
-| AuSelect                  | [下拉选择组件](https://wocwin.github.io/t-ui-plus/components/AuSelect/base.html?_blank)                                                                        |
-| AuDetail                  | [详情组件](https://wocwin.github.io/t-ui-plus/components/AuDetail/base.html?_blank)                                                                            |
-| AuButton                  | [防抖按钮组件](https://wocwin.github.io/t-ui-plus/components/AuTable/base.html?_blank)                                                                         |
-| AuStepWizard              | [步骤条组件](https://wocwin.github.io/t-ui-plus/components/AuStepWizard/base.html?_blank)                                                                      |
+| AuAdaptivePage            | [一屏组件](https://zhougree.github.io/aura-ui/components/AuAdaptivePage/base.html?_blank)（继承 AuTable 及 AuQueryCondition 组件的所有属性、事件、插槽、方法） |
+| AuQueryCondition          | [条件查询组件](https://zhougree.github.io/aura-ui/components/AuQueryCondition/base.html?_blank)                                                                |
+| AuTable                   | [表格组件](https://zhougree.github.io/aura-ui/components/AuTable/base.html?_blank)                                                                             |
+| Virtualized AuTable       | [虚拟列表](https://zhougree.github.io/aura-ui/components/AuTableVirtual/base.html?_blank)                                                                      |
+| AuForm                    | [表单组件](https://zhougree.github.io/aura-ui/components/AuForm/base.html?_blank)                                                                              |
+| AuSelectTable             | [下拉选择表格组件](https://zhougree.github.io/aura-ui/components/AuSelectTable/base.html?_blank)                                                               |
+| Virtualized AuSelectTable | [下拉选择虚拟表格组件](https://zhougree.github.io/aura-ui/components/multipleVirtual/base.html?_blank)                                                         |
+| AuSelectIcon              | [图标选择组件](https://zhougree.github.io/aura-ui/components/AuSelectIcon/base.html?_blank)                                                                    |
+| AuSelect                  | [下拉选择组件](https://zhougree.github.io/aura-ui/components/AuSelect/base.html?_blank)                                                                        |
+| AuDetail                  | [详情组件](https://zhougree.github.io/aura-ui/components/AuDetail/base.html?_blank)                                                                            |
+| AuButton                  | [防抖按钮组件](https://zhougree.github.io/aura-ui/components/AuTable/base.html?_blank)                                                                         |
+| AuStepWizard              | [步骤条组件](https://zhougree.github.io/aura-ui/components/AuStepWizard/base.html?_blank)                                                                      |
 | AuTimerBtn                | 定时按钮组件                                                                                                                                                   |
-| AuModuleForm              | [模块表单/详情组件](https://wocwin.github.io/t-ui-plus/components/AuModuleForm/base.html?_blank)                                                               |
-| AuDatePicker              | [日期选择器组件](https://wocwin.github.io/t-ui-plus/components/AuDatePicker/base.html?_blank)                                                                  |
-| AuRadio                   | [单选组件](https://wocwin.github.io/t-ui-plus/components/AuRadio/base.html?_blank)                                                                             |
-| AuCheckbox                | [多选组件](https://wocwin.github.io/t-ui-plus/components/AuCheckbox/base.html?_blank)                                                                          |
-| AuTabs                    | [标签页组件](https://wocwin.github.io/t-ui-plus/components/AuTabs/base.html?_blank)                                                                            |
-| AuSelectIcon              | [图标选择组件](https://wocwin.github.io/t-ui-plus/components/AuSelectIcon/base.html?_blank)                                                                    |
+| AuModuleForm              | [模块表单/详情组件](https://zhougree.github.io/aura-ui/components/AuModuleForm/base.html?_blank)                                                               |
+| AuDatePicker              | [日期选择器组件](https://zhougree.github.io/aura-ui/components/AuDatePicker/base.html?_blank)                                                                  |
+| AuRadio                   | [单选组件](https://zhougree.github.io/aura-ui/components/AuRadio/base.html?_blank)                                                                             |
+| AuCheckbox                | [多选组件](https://zhougree.github.io/aura-ui/components/AuCheckbox/base.html?_blank)                                                                          |
+| AuTabs                    | [标签页组件](https://zhougree.github.io/aura-ui/components/AuTabs/base.html?_blank)                                                                            |
+| AuSelectIcon              | [图标选择组件](https://zhougree.github.io/aura-ui/components/AuSelectIcon/base.html?_blank)                                                                    |
 
 ## aura-ui Volar 组件类型提示
 
@@ -199,7 +191,7 @@ npm run docs:dev
 
 ## Thanks to all the contributors
 
-<a href="https://github.com/wocwin/t-ui-plus/graphs/contributors">
+<a href="https://github.com/ZhouGree/aura-ui/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=wocwin/t-ui-plus" alt="contributors" />
 </a>
 

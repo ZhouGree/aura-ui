@@ -18,11 +18,11 @@ export default defineConfig({
     logo: "/img/favicon.png",
     siteTitle: "Aura-UI",
     outline: 3,
-    socialLinks: [{ icon: "github", link: "https://github.com/wocwin/t-ui-plus" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/ZhouGree/aura-ui" }],
     nav: [
       { text: "安装指南", link: "/components/" },
       { text: "基础组件", link: "/components/AuButton/base.md" },
-      { text: "GitHub地址", link: "https://github.com/wocwin/t-ui-plus" }
+      { text: "GitHub地址", link: "https://github.com/ZhouGree/aura-ui" }
     ],
     sidebar: {
       "/components": [
