@@ -1,0 +1,178 @@
+@import "./hero.css";
+@import "./table.css";
+@import "./navbar.css";
+@import "./sidebar.css";
+@import "./aside.css";
+
+/* :root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-lightest: #bcc0ff;
+  --vp-c-brand-dark: #535bf2;
+  --vp-c-brand-darker: #454ce1;
+  --demoblock-border: #e7e7e7;
+  --vp-code-block-bg: #f9fafb;
+} */
+
+/* .demo-block .meta {
+  background-color: var(--vp-code-block-bg);
+} */
+/* html.dark {
+  --vp-code-block-bg: var(--vp-code-block-bg);
+} */
+
+.VPContent .VPDoc .container .content {
+  padding: 0;
+}
+.VPContent .VPDoc.has-aside .content-container {
+  max-width: 1200px;
+}
+.vp-doc ul,
+.vp-doc ol {
+  padding-left: 0;
+}
+
+/* pre{
+  background: transparent;
+} */
+
+:root {
+  /* 主色调 - 柔和的蓝灰色系 */
+  --au-primary: #5a6b78;
+  --au-primary-light: #7a8b98;
+  --au-primary-soft: #f0f3f6;
+  --au-primary-hover: #6a7b88;
+
+  /* 辅助色 - 淡雅的点缀 */
+  --au-accent: #68a0b8;
+  --au-accent-light: #8ab8cc;
+
+  /* 背景色 - 干净清爽 */
+  --au-bg: #fafbfc;
+  --au-bg-secondary: #f5f7fa;
+  --au-white: #ffffff;
+
+  /* 边框色 - 细微分隔 */
+  --au-border: #e8ecef;
+  --au-border-light: #f0f3f6;
+
+  /* 文字颜色 - 清晰可读 */
+  --au-text-primary: #3d4852;
+  --au-text-secondary: #6b7a88;
+  --au-text-muted: #9ca8b3;
+
+  /* 状态颜色 */
+  --au-success: #68b888;
+  --au-warning: #c8a068;
+  --au-error: #c87878;
+  --au-info: #68a0b8;
+
+  /* 阴影 - 轻柔自然 */
+  --au-shadow-sm: 0 2px 8px rgba(90, 107, 120, 0.06);
+  --au-shadow-md: 0 4px 16px rgba(90, 107, 120, 0.08);
+  --au-shadow-lg: 0 8px 24px rgba(90, 107, 120, 0.1);
+
+  /* 圆角 - 柔和圆润 */
+  --au-radius-sm: 6px;
+  --au-radius-md: 8px;
+  --au-radius-lg: 12px;
+  --au-radius-card: 12px;
+
+  /* 适配顶部导航高度 */
+  --header-height: 64px;
+  --vp-nav-height: 64px;
+}
+
+html.dark {
+  /* 深色模式 - 柔和的暗色背景 */
+  --au-primary: #8a9ba8;
+  --au-primary-light: #a5b6c3;
+  --au-primary-soft: #2a3540;
+  --au-primary-hover: #9aaab8;
+
+  --au-accent: #7ab8cc;
+  --au-accent-light: #9ac8dc;
+
+  --au-bg: #1a2028;
+  --au-bg-secondary: #222a33;
+  --au-white: #2a3540;
+
+  --au-border: #3a4550;
+  --au-border-light: #2d3842;
+
+  --au-text-primary: #e8ecef;
+  --au-text-secondary: #a8b5c2;
+  --au-text-muted: #7a8b98;
+
+  --au-success: #78c898;
+  --au-warning: #d8b078;
+  --au-error: #d88888;
+  --au-info: #7ab8cc;
+
+  --au-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --au-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --au-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* 全局布局重置（让顶部导航 100% 贴合你的效果图） */
+.VPNavBar {
+  height: 64px !important;
+  line-height: 64px !important;
+}
+
+.VPNav {
+  height: 64px !important;
+}
+
+/* 内容布局正常化（不破坏滚动、不挤压顶部） */
+.VPHome,
+.vp-doc,
+.VPPage,
+.VPContent .VPDoc,
+.VPContent .container {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 增大展示区 - 减少内容区域两侧空白 */
+.VPContent .VPDoc .container .content {
+  max-width: 100% !important;
+  padding: 0 20px !important;
+}
+
+.VPContent .VPDoc.has-aside .content-container {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* 去除右侧多余边框线 */
+.VPDoc .aside {
+  border-left: none !important;
+}
+
+.VPContent {
+  border-right: none !important;
+}
+
+/* 全局默认字体、颜色统一 */
+body {
+  background-color: var(--au-bg) !important;
+  color: var(--au-text-primary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif !important;
+}
+
+/* 滚动条美化（统一莫兰迪风格） */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--au-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--au-bg);
+}

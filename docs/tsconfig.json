@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "types": [],
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "vue": ["../node_modules/vue"],
+      "vite/client": ["../node_modules/vite/client.d.ts"]
+    }
+  },
+  "include": [
+    "../packages/components.d.ts",
+    "../typings/index.d.ts",
+    "./**/*.vue",
+    "./**/*.ts"
+  ]
+}

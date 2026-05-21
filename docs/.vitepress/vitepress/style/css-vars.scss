@@ -1,0 +1,125 @@
+@use "./mixins" as *;
+@use "./vars" as *;
+
+// css variables
+:root {
+  // ========== 替换：莫兰迪配色体系（核心） ==========
+  --au-primary: #6C7A89;
+  --au-primary-light: #8A9BA8;
+  --au-primary-soft: #E8ECF0;
+  --au-secondary: #8AA39B;
+  --au-bg: #F5F7FA;
+  --au-white: #FFFFFF;
+  --au-border: #E1E6ED;
+  --au-text-primary: #4A5568;
+  --au-text-secondary: #8595A6;
+  --au-placeholder: #B5BEC9;
+  --au-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --au-code-bg: #2D2E32;
+
+  // ========== 兼容原有变量：映射为莫兰迪配色 ==========
+  --vp-c-brand: var(--au-primary);
+  --vp-c-brand-light: var(--au-primary-light);
+  --vp-c-brand-lighter: var(--au-primary-soft);
+  --vp-c-brand-dark: #535c68;
+  --vp-c-brand-darker: #444c56;
+
+  --text-color: var(--au-text-primary);
+  --text-color-light: var(--au-text-secondary);
+  --text-color-lighter: var(--au-placeholder);
+
+  --brand-color: var(--au-primary);
+  --brand-color-light: var(--au-primary-light);
+  --bg-brand-color: var(--au-primary-soft);
+
+  --bg-color: var(--au-bg);
+  --bg-color-rgb: 245, 247, 250; // 对应--au-bg的RGB
+  --bg-color-soft: var(--au-primary-soft);
+  --bg-color-mute: #e1e6ed;
+  --border-color: var(--au-border);
+  --border-color-light: #f0f2f5;
+
+  --success-color: #8AA39B; // 莫兰迪绿色
+  --warning-color: #d4b58e; // 莫兰迪黄色
+  --danger-color: #c18a8a; // 莫兰迪红色
+
+  // ========== 尺寸变量（适配visual/show.html） ==========
+  // 布局尺寸
+  --vp-screen-max-width: #{$au-container-max}; // 1200px（visual.html）
+  --au-sidebar-width: #{$au-sidebar-width}; // 260px（visual-show.html）
+  --au-radius-card: #{$au-radius-card-visual}; // 默认16px（visual.html）
+  --header-height: #{$au-nav-height}; // 64px（visual.html导航栏）
+  --nav-height: #{$au-nav-height}; // 别名
+
+  // 侧边栏尺寸
+  --vp-sidebar-width-mobile: 320px;
+  --vp-sidebar-width-small: #{$au-sidebar-width}; // 260px
+  --sidebar-width-sm: 16rem;
+  --sidebar-width-xs: 20rem;
+  --content-min-width: 16rem;
+  --content-max-width: 48rem;
+
+  // 层级z-index
+  --nav-z-index: 11;
+  --sub-nav-z-index: 11;
+  --sidebar-z-index: 40;
+  --overlay-z-index: 30;
+
+  // 代码块样式（适配visual-show.html）
+  --code-line-height: 1.4;
+  --code-font-size: 13px; // 匹配visual-show.html的代码字体
+  --code-bg-color: var(--au-code-bg);
+  --code-text-color: #e5e7eb;
+  --code-font-family: 'Fira Code', monospace, var(--el-font-family);
+
+  // 通用样式
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-family-mono: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  --block-tip-bg-color: rgba(108, 122, 137, 0.1);
+  --block-warning-bg-color: rgba(193, 138, 138, 0.1);
+  --link-active-bg-color: var(--au-primary-soft);
+
+  // ========== 响应式变量（适配visual-show.html） ==========
+  @include respond-to("xxl") {
+    --vp-sidebar-width-small: 234px;
+  }
+
+  @include respond-to("max") {
+    --vp-screen-max-width: 1482px;
+    --vp-sidebar-width-small: 290px;
+  }
+
+  // 适配visual-show.html移动端
+  @include respond-to("md") {
+    --au-sidebar-width: 0px; // 移动端侧边栏隐藏
+    --vp-screen-max-width: 100%;
+  }
+}
+
+// 暗黑模式（适配visual.html/show.html的暗黑逻辑）
+.dark {
+  // 莫兰迪暗黑配色
+  --au-primary: #8A9BA8;
+  --au-primary-light: #A5B6C3;
+  --au-primary-soft: #3A4A5A;
+  --au-bg: #1E2A36;
+  --au-white: #2D3E4F;
+  --au-border: #4A5B6E;
+  --au-text-primary: #F0EDE8;
+  --au-text-secondary: #C5C0B5;
+  --au-placeholder: #8A7D6F;
+
+  // 映射原有变量
+  --bg-color-rgb: 30, 42, 54;
+  --bg-color-soft: var(--au-primary-soft);
+  --bg-color-mute: #2c2c2c;
+
+  --vp-c-brand: var(--au-primary);
+  --vp-c-brand-light: var(--au-primary-light);
+}
+
+// 单独适配visual-show.html的卡片圆角（可选：区分两个页面）
+.visual-show-page {
+  --au-radius-card: #{$au-radius-card-show}; // 12px
+}

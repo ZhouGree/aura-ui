@@ -1,0 +1,100 @@
+/* ==========================================
+   导航栏样式 - 简洁舒适的统一设计
+   ========================================== */
+
+/* 导航栏基础样式 */
+.VPNav {
+  background: var(--au-white) !important;
+  border-bottom: 1px solid var(--au-border) !important;
+  height: 64px !important;
+}
+
+.VPNavBar {
+  height: 64px !important;
+  padding: 0 20px !important;
+}
+
+/* Logo 与品牌标识 */
+.VPNavBarTitle {
+  gap: 10px !important;
+}
+
+.VPNavBarTitle img {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+.VPNavBarTitle .title {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--au-text-primary) !important;
+}
+
+/* 导航菜单链接 */
+.VPNav .nav-links {
+  gap: 8px !important;
+}
+
+.VPNav a {
+  font-size: 14px !important;
+  color: var(--au-text-secondary) !important;
+  padding: 8px 16px !important;
+  border-radius: var(--au-radius-md) !important;
+  transition: all 0.2s ease !important;
+}
+
+.VPNav a:hover {
+  color: var(--au-primary) !important;
+  background-color: var(--au-primary-soft) !important;
+}
+
+.VPNav a.active {
+  color: var(--au-primary) !important;
+  font-weight: 500 !important;
+  background-color: var(--au-primary-soft) !important;
+}
+
+/* 右侧按钮组 */
+.VPNav .right-area {
+  gap: 8px !important;
+}
+
+.VPNav button {
+  border-radius: var(--au-radius-md) !important;
+  padding: 6px 12px !important;
+  font-size: 14px !important;
+  color: var(--au-text-secondary) !important;
+  background-color: transparent !important;
+  transition: all 0.2s !important;
+}
+
+.VPNav button:hover {
+  color: var(--au-primary) !important;
+  background-color: var(--au-primary-soft) !important;
+}
+
+.VPNavBar .dark-toggle {
+  background-color: var(--au-bg) !important;
+}
+
+/* 深色模式适配 */
+html.dark .VPNav {
+  background-color: var(--au-white) !important;
+  border-bottom-color: var(--au-border) !important;
+}
+
+html.dark .VPNav a {
+  color: var(--au-text-secondary) !important;
+}
+
+html.dark .VPNav a:hover,
+html.dark .VPNav a.active {
+  color: var(--au-primary) !important;
+  background-color: var(--au-primary-soft) !important;
+}
+
+html.dark .VPNavBar .dark-toggle {
+  background-color: var(--au-bg) !important;
+}

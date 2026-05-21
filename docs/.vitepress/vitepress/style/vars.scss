@@ -1,0 +1,27 @@
+// breakpoints（调整断点值匹配视觉稿，保留命名）
+$breakpoint-max: 1680px !default;
+$breakpoint-xxl: 1440px !default;
+$breakpoint-xlg: 1280px !default;
+$breakpoint-lg: 900px !default; // 替换原960px，匹配visual.html的平板断点
+$breakpoint-md: 768px !default; // 匹配visual-show.html的移动端断点
+$breakpoint-sm: 480px !default;
+
+// scrollbar width
+$scrollbar-size: 6px;
+
+// 新增：莫兰迪视觉核心尺寸（复用visual.html/show.html的设计值）
+$au-sidebar-width: 260px !default; // 侧边栏宽度（visual-show.html）
+$au-container-max: 1200px !default; // 主容器最大宽度（visual.html）
+$au-radius-card-visual: 16px !default; // visual.html卡片圆角
+$au-radius-card-show: 12px !default; // visual-show.html卡片圆角
+$au-nav-height: 64px !default; // visual.html导航栏高度
+$au-breakpoint-small-height: 700px !default; // visual.html小屏高度断点
+
+// 新增：间距层级（复用视觉稿的间距值）
+$au-spacing: (
+    xs: 8px,
+    sm: 16px,
+    md: 20px,
+    lg: 24px,
+    xl: 32px,
+    xxl: 48px) !default;

@@ -1,0 +1,57 @@
+/* ==========================================
+   右侧大纲面板样式 - 简洁舒适的统一设计
+   ========================================== */
+
+/* 大纲容器 */
+.VPDoc .aside {
+  background-color: var(--au-bg) !important;
+  border-left: 1px solid var(--au-border) !important;
+  padding-top: 20px !important;
+}
+
+/* 大纲标题 */
+.VPDocAsideOutline .outline-title {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--au-text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 0 16px 12px !important;
+  margin: 0 !important;
+  border-bottom: 1px solid var(--au-border) !important;
+}
+
+/* 大纲项 */
+.VPDocOutlineItem .outline-link {
+  font-size: 13px !important;
+  color: var(--au-text-secondary) !important;
+  padding: 6px 16px !important;
+  border-left: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.VPDocOutlineItem .outline-link:hover {
+  color: var(--au-primary) !important;
+  background-color: var(--au-primary-soft) !important;
+}
+
+/* 大纲选中态 */
+.VPDocOutlineItem .outline-link.active {
+  color: var(--au-primary) !important;
+  border-left-color: var(--au-primary) !important;
+  font-weight: 500 !important;
+}
+
+.VPDocAsideOutline .outline-marker {
+  background-color: transparent !important;
+}
+
+/* 深色模式 */
+html.dark .VPDoc .aside {
+  background-color: var(--au-bg) !important;
+  border-left-color: var(--au-border) !important;
+}
+
+html.dark .VPDocOutlineItem .outline-link:hover {
+  background-color: var(--au-primary-soft) !important;
+}
