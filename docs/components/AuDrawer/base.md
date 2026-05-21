@@ -4,92 +4,52 @@ layout: doc
 
 # AuDrawer 抽屉组件
 
-### 基础用法
+### 简介
 
-:::demo
+抽屉弹窗组件，支持异步确认和多方向弹出。提供编程式控制方法，异步确认功能确保操作完成后再关闭弹窗，适用于表单编辑、详情查看等侧边栏场景。
+
+#### 基础用法
+
+:::demo 展示抽屉组件的基本使用方式，支持异步确认和多方向弹出
+AuDrawer/base
+:::
+
+### 基础功能
+
+:::demo 基础抽屉功能，提供编程式控制方法
 AuDrawer/base
 :::
 
 ### 表单场景
 
-:::demo
+:::demo 在抽屉中嵌入表单，实现侧边栏编辑功能
 AuDrawer/form
 :::
 
-### 方向与尺寸
+### 方向与尺寸配置
 
-:::demo
+:::demo 配置抽屉的弹出方向（top/right/bottom/left）和尺寸
 AuDrawer/placement
 :::
 
-### 通过方法控制开关
+### 方法控制开关
 
-:::demo
+:::demo 通过方法调用控制抽屉的打开和关闭
 AuDrawer/methods
 :::
 
 ### 遮罩逻辑
 
-:::demo
+:::demo 配置遮罩层的行为，支持点击遮罩关闭抽屉
 AuDrawer/mask
 :::
 
-### 插槽
+### 插槽自定义
 
-:::demo
+:::demo 通过插槽自定义抽屉的头部、底部和内容区域
 AuDrawer/slot
 :::
 
-### Attributes
+### 组件配置
 
-| 参数               | 说明                                | 类型                        | 默认值 |
-| :----------------- | :---------------------------------- | :-------------------------- | :----- |
-| modelValue         | 是否显示抽屉（v-model）             | boolean                     | false  |
-| visible            | 兼容旧版显示控制                    | boolean                     | —      |
-| title              | 抽屉标题                            | string                      | —      |
-| placement          | 抽屉弹出方向                        | left / right / top / bottom | right  |
-| size               | 抽屉尺寸（推荐使用）                | string / number             | 40%    |
-| width              | 尺寸兼容字段                        | string / number             | 40%    |
-| showMask           | 是否显示遮罩层                      | boolean                     | true   |
-| maskClosable       | 点击遮罩是否关闭抽屉                | boolean                     | true   |
-| closeOnEsc         | 按下 ESC 键是否关闭                 | boolean                     | true   |
-| destroyOnClose     | 关闭时是否销毁内部内容              | boolean                     | false  |
-| showClose          | 是否显示右上角关闭按钮              | boolean                     | true   |
-| zIndex             | 抽屉层级                            | number                      | 2000   |
-| footer             | 是否显示默认底部按钮栏              | boolean                     | true   |
-| footerAlign        | 底部按钮对齐方式                    | left / center / right       | right  |
-| confirm            | 确认前异步校验，返回 false 阻止关闭 |                             | —      |
-| cancelText         | 取消按钮文字                        | string                      | 取消   |
-| confirmText        | 确认按钮文字                        | string                      | 确定   |
-| confirmButtonProps | 确认按钮属性配置                    | object                      | —      |
-| cancelButtonProps  | 取消按钮属性配置                    | object                      | —      |
-
-<!-- () => boolean | Promise<boolean> -->
-
-### Events
-
-| 事件名            | 说明             |
-| :---------------- | :--------------- |
-| update:modelValue | 显示状态同步     |
-| update:visible    | 兼容旧版状态同步 |
-| confirm           | 点击确认按钮     |
-| cancel            | 点击取消按钮     |
-| open              | 抽屉开始打开     |
-| opened            | 抽屉打开动画完成 |
-| close             | 抽屉开始关闭     |
-| closed            | 抽屉关闭动画完成 |
-
-### Slots
-
-| 插槽名  | 说明       |
-| :------ | :--------- |
-| header  | 自定义头部 |
-| default | 主体内容   |
-| footer  | 自定义底部 |
-
-### Exposes 方法
-
-| 方法名  | 说明     |
-| :------ | :------- |
-| open()  | 打开抽屉 |
-| close() | 关闭抽屉 |
+<AuDrawerTabs />

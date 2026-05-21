@@ -96,9 +96,9 @@ export function throttle(
  * 驼峰转换下划线
  * @param { String } name
  */
-export function toLine(name: string) {
-  return name.replace(/([A-Z])/g, "_$1").toLowerCase()
-}
+// export function toLine(name: string) {
+//   return name.replace(/([A-Z])/g, "_$1").toLowerCase()
+// }
 
 /*
   自定义保留 precision 位小数，并使用 separator 分隔符进行数字格式化

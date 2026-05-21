@@ -4,183 +4,102 @@ layout: doc
 
 # AuForm 表单组件
 
----
+### 简介
 
-### 基础用法
+配置化动态表单核心组件，通过 JSON 配置对象自动生成完整表单界面，支持字段联动、动态显隐和表单校验。大幅减少表单模板代码，实现复杂表单快速搭建。
 
-::: demo
+#### 代码示例
+
+```html
+<au-form ref="formRef" :form-opts="formOpts" @submit="handleSubmit" />
+```
+
+#### 基础用法
+
+:::demo 展示配置化表单的基本使用方式，通过 JSON 配置自动生成表单
 AuForm/base
 :::
 
-### 继承 Element-plus 组件的事件使用
+### 基础配置
 
-::: demo
+:::demo 继承 Element-plus 组件的事件，支持表单级别的事件监听
 AuForm/eventHandle
 :::
 
-### el-input 去除前后空格（type=password 除外）
-
-::: demo
+:::demo 设置 `isTrim` 自动去除输入框前后空格（密码类型除外）
 AuForm/isTrim
 :::
 
-### 对齐方式
-
-:::demo 通过设置 `formOpts.labelPosition` 属性或者设置`labelPosition`（`formOpts.labelPosition`优先级高于`labelPosition`）可以改变表单域标签的位置，可选值为 `top`、`left`、`right`，默认`right`
+:::demo 通过 `labelPosition` 属性设置表单域标签位置，可选值为 top、left、right
 AuForm/labelPosition
 :::
 
-### 每行展示多少项
-
-:::demo 通过设置 `widthSize` 属性可以改变表单域每行显示项，可选值为 `1`、`2`、`3`、`4`、`5`、`6`，默认`2`————即每行显示两项；**若某一项需要单独显示一行（通常是备注或者文本域）需要在 fieldList 中设置 `widthSize` 为 1**
+:::demo 通过 `widthSize` 属性控制每行显示的表单项数量，可选值为 1-6
 AuForm/widthSize
 :::
 
-### 表单校验规则
+### 表单校验
 
-:::demo `AuForm` 组件提供了表单验证的功能，只需要通过 `rules` 属性传入约定的验证规则，并将 `Form-Item` 的 `prop` 属性设置为需校验的字段名即可。校验规则参见 [async-validator](https://github.com/yiminghe/async-validator);可以`自定义校验规则`可以参考`email`方式来写
+:::demo 通过 `rules` 属性配置表单校验规则，支持 async-validator 校验规则，可自定义校验函数
 AuForm/rules
 :::
 
-### 自定义 label jsx 渲染
+### 自定义渲染
 
-:::demo 第一种：`tsx`方式—————配置`labelRender`**当`labelRender`与`label`同时存在时：优先渲染`labelRender`**；第二种：使用`labelSlotName`插槽
+:::demo 通过 `labelRender` 属性使用 TSX 自定义标签渲染，优先级高于 label 属性
 AuForm/labelRender
 :::
 
-### 输入框插槽使用
-
-:::demo `AuForm`组件提供了自定义 `输入框插槽`或下拉选择的`option插槽`的功能输入框插槽：配置`slotName`option 插槽：配置`childSlotName`
+:::demo 通过 `slotName` 和 `childSlotName` 插槽自定义输入框内容和下拉选项
 AuForm/slotName
 :::
 
-### 文本展示
-
-:::demo `AuForm`组件提供了`文本展示`的功能设置 `textShow: true`; `textValue`——显示的文本
+:::demo 设置 `textShow: true` 将表单项转换为文本展示模式
 AuForm/textShow
 :::
 
-### 结合自己封装组件使用
-
-:::demo 可以通过`getRefs`事件获取`formOpts.fieldList`中某项设置的`ref`示例；具体参考示例
+:::demo 通过 `getRefs` 事件获取 fieldList 中某项的 ref 引用
 AuForm/comUse
 :::
 
-### 赋值回显数据
+### 数据处理
 
-:::demo
+:::demo 通过 `echo` 属性实现表单数据回显
 AuForm/echo
 :::
 
-### 联动选择
-
-:::demo
+:::demo 实现表单项之间的联动效果，根据一个字段的值动态改变另一个字段
 AuForm/linkage
 :::
 
-### 动态显示隐藏表单项 <el-tag>v1.4.15</el-tag>
-
-:::demo 操作`formOpts.fieldList`中的`isHideItem`属性来控制表单项的显示与隐藏(function 方式)
+:::demo 通过 `isHideItem` 属性动态控制表单项的显示与隐藏（支持函数方式）
 AuForm/isHideItemFunction
-
 :::
 
-### 弹窗动态显示表单项
-
-:::demo 操作`formOpts.fieldList`中的`isHideItem`属性来控制表单项的显示与隐藏
+:::demo 通过 `isHideItem` 属性动态控制表单项的显示与隐藏
 AuForm/isHideItem
 :::
 
-### 操作按钮插槽显示
+### 按钮配置
 
-:::demo
+:::demo 通过 `btnSlotName` 插槽自定义操作按钮
 AuForm/btnSlotName
 :::
 
-### 操作按钮 render 渲染
-
-:::demo `render`函数`tsx`方式支持使用组件插槽使用
+:::demo 通过 `btnRender` 使用 TSX 自定义渲染操作按钮
 AuForm/btnRender
 :::
 
-### 操作按钮动态显示&隐藏
-
-:::demo
+:::demo 通过 `btnisHide` 属性动态控制操作按钮的显示与隐藏
 AuForm/btnisHide
 :::
 
-### 获取 fieldList 单项的 Ref
+### 高级用法
 
-:::demo 通过`getRefs`事件获取`formOpts.fieldList`中某项设置的`ref`
+:::demo 通过 `getRefs` 事件获取 fieldList 中单项的 ref，便于手动控制
 AuForm/getRefs
 :::
 
-### AuForm 参数配置
+### 组件配置
 
----
-
-### 1. 简介：基于 Element-plus Form 表单组件的二次封装，着重于数据层面，HTML 一行代码
-
-> AuForm 表单组件 **代码示例：**
-
-```html
-<au-form v-model="formOpts.ref" :formOpts="formOpts" :widthSize="2" @handleEvent="handleEvent" />
-```
-
-### 2. 配置参数
-
-| 参数                                  | 说明                                                                                                                                             | 类型              | 默认值                          |
-| :------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :------------------------------ |
-| className                             | 自定义类名                                                                                                                                       | String            | -                               |
-| labelPosition                         | 改变表单项 label 与输入框的布局方式(`right,left,top`)                                                                                            | String            | ''                              |
-| widthSize                             | 每行显示几个输入项（默认两项） 最大值 6                                                                                                          | Number            | 2                               |
-| isTrim                                | 全局是否开启清除前后空格(comp 为 el-input 且 type 不等于'password')                                                                              | Boolean           | true                            |
-| formOpts                              | 表单配置项                                                                                                                                       | Object            | -                               |
-| ---ref                                | 当前 AuForm 实例                                                                                                                                 | Object            | -                               |
-| ---labelPosition                      | 改变表单项 label 与输入框的布局方式(默认：right) /top （优先展示组件`labelPosition`）                                                            | String            | right                           |
-| ---listTypeInfo                       | 下拉选择数据源（type:'select'有效）                                                                                                              | Object            | -                               |
-| ---fieldList                          | form 表单每项 list                                                                                                                               | Array             | -                               |
-| ------isHideItem                      | 动态显示隐藏某一项;function 时传出 formData                                                                                                      | Boolean /function | false                           |
-| ------slotName                        | 自定义表单某一项输入框                                                                                                                           | slot              | -                               |
-| ------childSlotName                   | 自定义表单某一下拉选择项子组件插槽（el-option）                                                                                                  | slot              | -                               |
-| ------comp                            | 表单每一项组件名称（可使用第三方 UI 如 el-select/el-input 也可以使用自定义组件）                                                                 | String/components | -                               |
-| ------bind                            | 继承第三方 UI 的 Attributes,function 传出 formData                                                                                               | Object/funnction  | -                               |
-| ------isSelfCom                       | 是否使用自己封装的组件（即不需要嵌套 el-option 等）                                                                                              | Boolean           | false                           |
-| ------isTrim                          | 是否不清除前后空格(comp 为 el-input 且 type 不等于'password')                                                                                    | Boolean           | false                           |
-| ------type                            | 某一项类型<au-tip content='(目前只有checkbox/radio/select-arr/select-obj/inputNumber)此值只有组件内嵌组件才设置（如：el-select内嵌el-option）'/> | String            | -                               |
-| ------widthSize                       | form 表单某一项所占比例(如果占一整行则设置 1)                                                                                                    | Number            | -                               |
-| ------width                           | form 表单某一项所占实际宽度                                                                                                                      | String            | -                               |
-| ------arrLabel                        | type=select-arr/radio/checkbox 时，每个下拉显示的中文                                                                                            | String            | label                           |
-| ------arrKey                          | type=select-arr/radio/checkbox 时，每个下拉显示的中文传后台的数字                                                                                | String            | key                             |
-| ------label                           | form 表单每一项 title                                                                                                                            | String            | -                               |
-| ------labelRender                     | 自定义某一项 title                                                                                                                               | function          | -                               |
-| ------labelSlotName                   | 自定义某一项 title（插槽名：就是 labelSlotName 值                                                                                                | slot              | -                               |
-| ------value                           | form 表单每一项传给后台的参数                                                                                                                    | String            | -                               |
-| ------rules                           | 每一项输入框的表单校验规则（可参考 element-plus el-form-item 方式配置）                                                                          | Object/Array      | -                               |
-| ------list                            | 下拉选择数据源（仅仅对 type:'select'有效）                                                                                                       | String            | -                               |
-| ------event                           | 表单每一项事件标志（即是：handleEvent 事件第一个参数值）                                                                                         | String            | -                               |
-| ------eventHandle                     | 继承 comp 组件的事件                                                                                                                             | Object            | -                               |
-| ------ref                             | 当前使用组件的 ref 标识（可以通过 getRefs 事件返回）                                                                                             | String            | -                               |
-| ---formData                           | 表单提交数据(对应 fieldList 每一项的 value 值)                                                                                                   | Object            | -                               |
-| ---labelWidth                         | label 宽度                                                                                                                                       | String            | 120px                           |
-| ---rules                              | 校验规则（可参考 element-plus el-form 方式配置）                                                                                                 | Object/Array      | -                               |
-| ---btnSlotName                        | 操作按钮插槽命名                                                                                                                                 | String            | -                               |
-| ---operatorList                       | 操作按钮 list                                                                                                                                    | Array             | -                               |
-| -----bind                             | 继承 el-button 所有 Attributes                                                                                                                   | Object            | `{type:'primary',size:'small'}` |
-| -----fun                              | 事件名                                                                                                                                           | function          | -                               |
-| -----isHideBtn<el-tag>1.4.12</el-tag> | 是否隐藏按钮                                                                                                                                     | Boolean           | false                           |
-| -----render<el-tag>1.4.12</el-tag>    | render 函数<au-tip content='render函数不允跟bind、fun、isHideBtn同时使用'/>                                                                      | function          | -                               |
-
-### 3. events 继承 element-plus el-form 的 events
-
-| 事件名      | 说明                       | 返回值                                                   |
-| :---------- | :------------------------- | :------------------------------------------------------- |
-| handleEvent | 单个查询条件触发事件       | fieldList 中 type/查询条件输入的值/fieldList 中 event 值 |
-| getRefs     | 获取 AuForm 使用组件的 ref | fieldList 中 最好需要传 ref 标识来区分是哪个组件的 ref   |
-
-### 4. Methods 继承 element-plus el-form 的 methods
-
-| 事件名          | 说明                                              | 返回值                        |
-| :-------------- | :------------------------------------------------ | :---------------------------- |
-| selfValidate    | 自定义校验                                        | valid:Boolean;formData:object |
-| selfResetFields | 自定义重置方法（主要清空使用 AuSelectTable 组件） | -                             |
+<AuFormTabs />

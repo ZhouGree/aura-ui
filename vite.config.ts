@@ -5,14 +5,14 @@ import { resolve } from 'path'
 // import vueSetupExtend from 'vite-plugin-vue-setup-extend' // 设置neme属性
 // import AutoImport from 'unplugin-auto-import/vite' // 自动导入
 // import viteCompression from 'vite-plugin-compression' // 静态资源压缩
-// import {visualizer} from 'rollup-plugin-visualizer' // 打包后的视图文件
-import dts from 'vite-plugin-dts'
+import {visualizer} from 'rollup-plugin-visualizer' // 打包后的视图文件
+// import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    dts(),
+    // dts(),
     vueJsx(),
     // vueSetupExtend(),
     // viteCompression({
@@ -28,6 +28,12 @@ export default defineConfig({
     //   gzipSize:true,
     //   brotliSize:true
     // })
+    visualizer({
+      open: true,         // 打包完自动打开浏览器
+      filename: 'stats.html', // 生成分析文件
+      gzipSize: true,     // 显示 gzip 大小
+      brotliSize: true
+    })
   ],
   server: {
     host: '0.0.0.0',

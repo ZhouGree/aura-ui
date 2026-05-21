@@ -2,30 +2,42 @@
 layout: doc
 ---
 
-# AuButton 按钮组件(内置防抖功能)
+# AuButton 按钮组件
 
-### 基础用法
+### 简介
 
-:::demo `继承el-button所有属性` 新增`time`属性（多少时间内点击；默认 1 秒）
+基于 Element Plus Button 二次封装，内置防抖功能防止重复提交。支持自定义防抖时间、提示文字和图标，适用于表单提交、操作按钮等高频点击场景，提升用户体验和系统稳定性。
+
+#### 代码示例
+
+```html
+<au-button type="primary" :time="1000" :is-debounce="true" tip="点击提示"> 提交 </au-button>
+```
+
+#### 基础用法
+
+:::demo 展示按钮的基本使用方式，继承 el-button 所有属性，内置防抖功能防止重复提交
+AuButton/base
+:::
+
+### 基础功能
+
+:::demo 继承 el-button 所有属性，新增 `time` 属性控制防抖时间（默认 1 秒）
 AuButton/base
 :::
 
 ### 提示文字
 
-:::demo 使用 `type、size、tip、icon`和`placement`属性来定义 Button 的样式；
+:::demo 通过 `tip` 属性设置提示文字，配合 `placement` 属性控制提示位置
 AuButton/tip
 :::
 
-### 是否需要防抖
+### 防抖开关
 
-:::demo 通过设置 `isDebounce` ，可以选择是否开启防抖，默认为 true
+:::demo 通过 `isDebounce` 属性控制是否开启防抖，默认开启
 AuButton/isDebounce
 :::
 
-
-
-
-
-### tabs 实现
+### 组件配置
 
 <AuButtonTabs />

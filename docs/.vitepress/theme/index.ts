@@ -1,3 +1,4 @@
+import type { EnhanceAppContext } from 'vitepress'
 import DefaultTheme from "vitepress/theme"
 
 import ElementPlus from "element-plus"
@@ -10,16 +11,18 @@ import * as echarts from "echarts" // 引入echarts
 import TVHtml from "../components/TVHtml.vue"
 import AuIcon from "../components/AuIcon.vue"
 import AuTip from "../components/AuTip.vue"
+import AuComponentsOverview from "../components/AuComponentsOverview.vue"
 import { VPDemo } from "../vitepress"
 // 基于element-plus二次封装基础组件
 import AuraUI from "../../../packages"
 import "./index.css"
 
 import { autoRegisterComponents } from "./autoRegisterComponents"
+import { initTableFix } from "./tableFix"
 
 export default {
   ...DefaultTheme,
-  enhanceApp(ctx) {
+  enhanceApp(ctx: EnhanceAppContext) {
     DefaultTheme.enhanceApp(ctx)
     ctx.app.config.globalProperties.$echarts = echarts // 全局使用
     // 注册ElementPlus
@@ -37,6 +40,10 @@ export default {
     ctx.app.component("TVHtml", TVHtml)
     ctx.app.component("AuIcon", AuIcon)
     ctx.app.component("AuTip", AuTip)
+    ctx.app.component("AuComponentsOverview", AuComponentsOverview)
     autoRegisterComponents(ctx.app)
+    
+    // 初始化表格修复
+    initTableFix()
   },
 }

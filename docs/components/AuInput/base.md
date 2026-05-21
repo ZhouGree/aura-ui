@@ -4,99 +4,74 @@ layout: doc
 
 # AuInput 输入框组件
 
-### 基本使用
+### 简介
 
-:::demo
+增强型输入框组件，支持金额千分位、手机号、身份证等特定格式自动格式化和校验。采用策略模式设计，通过 inputType 属性灵活切换不同输入类型的处理逻辑，减少重复代码，提升表单开发效率。
+
+#### 代码示例
+
+```html
+<au-input v-model="value" placeholder="请输入内容" :input-type="'text'" />
+```
+
+#### 基础用法
+
+:::demo 展示输入框的基本使用方式，支持多种输入类型和格式化
 AuInput/base
 :::
 
-### 输入金额
+### 格式化输入
 
-:::demo 设置`inputType=amount`；若开启千分号显示`showThousands`，则必须`type=text`，默认 2 位小数点，可设置`decimalLimit`来调整小数点位数。
+:::demo 设置 `inputType="amount"` 实现金额输入，支持千分位显示和小数点限制
 AuInput/amount
 :::
 
-### 金额鼠标移入提示中文
-
-:::demo 设置`inputType=amount`；标签添加`isTip`开启中文提示则不允许开启千分号显示`showThousands`。
+:::demo 设置 `inputType="amount"` 并开启 `isTip` 显示中文提示，注意此时不支持千分位
 AuInput/amountTip
 :::
 
-### 输入手机号
-
-:::demo 设置`inputType=phone`
-AuInput/phone
-:::
-
-### 输入整数
-
-:::demo 设置`inputType=integer`
-AuInput/integer
-:::
-
-### 输入数字（含小数点）
-
-:::demo 设置`inputType=decimal`，默认 2 位小数点，可设置`decimalLimit`来调整小数点位数。
-AuInput/decimal
-:::
-
-### 输入身份证号
-
-:::demo 设置`inputType=idCard`
-AuInput/idCard
-:::
-
-### 格式化输入内容
-
-:::demo 在 `formatter`的情况下显示值，我们通常同时使用 `parser`
+:::demo 使用 `formatter` 和 `parser` 自定义输入输出格式
 AuInput/formatter
 :::
 
-### 文本域
+### 类型校验
 
-:::demo 设置 `type="textarea"`，并可通过 `rows` 属性控制文本域高度
+:::demo 设置 `inputType="phone"` 进行手机号格式校验
+AuInput/phone
+:::
+
+:::demo 设置 `inputType="integer"` 只允许输入整数
+AuInput/integer
+:::
+
+:::demo 设置 `inputType="decimal"` 限制小数位数，默认 2 位
+AuInput/decimal
+:::
+
+:::demo 设置 `inputType="idCard"` 进行身份证号码校验
+AuInput/idCard
+:::
+
+### 特殊类型
+
+:::demo 设置 `type="textarea"` 转换为文本域，通过 `rows` 属性控制高度
 AuInput/textarea
 :::
 
-### 复合型输入框
-
-:::demo 可通过 slot = prepend 和 slot = append 来增加前置和后置的元素
+:::demo 通过 prepend 和 append 插槽添加前置和后置元素
 AuInput/compoundType
 :::
 
-### 尺寸
+### 样式配置
 
-:::demo 可通过 `size` 属性指定输入框的尺寸，该属性可接受 `medium`, `small`, `mini` 三个值
+:::demo 通过 `size` 属性指定输入框尺寸，可选值为 medium、small、mini
 AuInput/size
 :::
 
-### 插槽使用
-
-:::demo 按照 `el-input` 方式来使用插槽
+:::demo 使用插槽自定义输入框内容，遵循 el-input 的插槽用法
 AuInput/slot
 :::
 
-### AuInput Attributes
+### 组件配置
 
----
-
-### 1、代码示例
-
-```html
-<au-input v-model="inputVlaue" />
-```
-
-### 2、配置参数（Attributes）继承 el-input Attributes
-
-| 参数           | 说明                                                   | 类型                                                                                               | 默认值   |
-| :------------- | :----------------------------------------------------- | :------------------------------------------------------------------------------------------------- | :------- |
-| v-model        | 绑定值                                                 | string                                                                                             | -        |
-| placeholder    | placeholder 提示语                                     | string                                                                                             | '请输入' |
-| decimalLimit   | 小数点位数 <au-tip content='小数、金额类型时生效'/>    | Number                                                                                             | 2        |
-| appendTitle    | 插槽 append 显示文案<au-tip content='金额类型时生效'/> | string                                                                                             | '元'     |
-| showThousands  | 是否显示千分号<au-tip content='小数、金额类型时生效'/> | Boolean                                                                                            | false    |
-| isTip          | 是否提示金额中文<au-tip content='金额类型时生效'/>     | Boolean                                                                                            | false    |
-| inputType      | 特性类型标注                                           | string<au-tip content='文字:text,金额:amount,电话:phone,整数:integer,小数:decimal,身份证:idCard'/> | text     |
-| isShowErrorTip | 输入错误是否弹出弹窗提示                               | Boolean                                                                                            | true     |
-
-### 3、继承 el-input 事件、插槽、方法
+<AuInputTabs />

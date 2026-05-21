@@ -17,6 +17,9 @@ import AuCheckbox from "./checkbox/src/index.vue"
 import AuTabs from "./tabs/src/index.vue"
 import AuSelectIcon from "./select-icon/src/index.vue"
 import AuInput from "./input/src/index.vue"
+import AuDrawer from "./drawer/src/index.vue"
+import AuBreadcrumb from "./breadcrumb/src/index.vue"
+import AuQueryTable from "./query-table/src/index.vue"
 
 declare module "vue" {
   export interface GlobalComponents {
@@ -39,5 +42,8 @@ declare module "vue" {
     AuTabs: typeof AuTabs
     AuSelectIcon: typeof AuSelectIcon
     AuInput: typeof AuInput
+    AuDrawer: typeof AuDrawer
+    AuBreadcrumb: typeof AuBreadcrumb
+    AuQueryTable: typeof AuQueryTable
   }
 }

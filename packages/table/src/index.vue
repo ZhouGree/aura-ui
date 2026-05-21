@@ -61,7 +61,7 @@
         multile_head_column: isTableHeader,
         au_table_use_virtual: useVirtual
       }"
-      v-bind="$attrs"
+      v-bind="{ ...$attrs, columns: undefined }"
       :highlight-current-row="highlightCurrentRow"
       :border="border || table.border || isTableBorder || useVirtual"
       @cell-dblclick="cellDblclick"
@@ -239,6 +239,10 @@
               <template v-if="item.slotName">
                 <slot :name="item.slotName" :scope="scope"></slot>
               </template>
+              <!-- slotNameMerge 插槽 -->
+              <template v-if="item.slotNameMerge">
+                <slot :name="item.slotNameMerge" :scope="scope"></slot>
+              </template>
               <!-- 单个单元格编辑 -->
               <template v-if="item.canEdit">
                 <el-form
@@ -297,6 +301,7 @@
                 v-if="
                   !item.render &&
                   !item.slotName &&
+                  !item.slotNameMerge &&
                   !item.canEdit &&
                   !item.filters &&
                   !item.isClickEdit

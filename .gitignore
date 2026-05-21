@@ -3,11 +3,8 @@ node_modules
 /dist
 lib
 umd
+
 # 忽略目录
-# examples/
-# packages/
-# public/
-# vitepress .cache .temp dist
 docs/.vitepress/.temp
 docs/.vitepress/cache
 docs/.vitepress/cache/deps/
@@ -31,3 +28,14 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+// 忽略测试文件
+*.test.js
+*.test.ts
+*.test.jsx
+*.test.tsx
+__tests__/
+**/tests/**
+**/__tests__/**
+coverage/
+e2e/

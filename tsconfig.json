@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "noImplicitAny": false, // 隐式具有“any”类型
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "strict": true,
     "jsx": "preserve",
     "types": [

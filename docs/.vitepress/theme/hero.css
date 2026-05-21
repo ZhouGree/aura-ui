@@ -1,7 +1,11 @@
-/* 首页 Logo 大小 */
+/* ==========================================
+   Hero 区域样式 - 简洁舒适的统一设计
+   ========================================== */
+
+/* Logo */
 .hero-logo {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   margin-bottom: 16px;
   border-radius: 50%;
 }
@@ -10,16 +14,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 64px - 70px);
+  min-height: calc(100vh - 64px - 60px);
   background: var(--au-bg);
-  padding: 0 24px;
+  padding: 40px 24px;
 }
 
 .hero-inner {
-  max-width: 1300px;
+  max-width: 1200px;
   width: 100%;
   display: flex;
-  gap: 60px;
+  gap: 48px;
   align-items: center;
 }
 
@@ -31,77 +35,90 @@
   display: inline-block;
   background: var(--au-primary-soft);
   color: var(--au-primary);
-  padding: 2px 12px;
-  border-radius: 30px;
+  padding: 4px 14px;
+  border-radius: 20px;
   font-size: 13px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .hero-left h1 {
-  font-size: 52px !important;
-  font-weight: 700 !important;
+  font-size: 44px !important;
+  font-weight: 600 !important;
   color: var(--au-text-primary) !important;
   margin: 8px 0 16px !important;
-  line-height: 1.1 !important;
+  line-height: 1.15 !important;
 }
 
 .hero-left p {
-  font-size: 18px !important;
+  font-size: 16px !important;
   color: var(--au-text-secondary) !important;
-  max-width: 520px !important;
-  margin-bottom: 28px !important;
+  max-width: 500px !important;
+  margin-bottom: 24px !important;
+  line-height: 1.6 !important;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 14px;
+  margin-bottom: 32px;
 }
 
 /* 主按钮 */
 .hero-btn {
   background: var(--au-primary);
   border: none;
-  padding: 8px 28px;
-  border-radius: 30px;
+  padding: 10px 28px;
+  border-radius: var(--au-radius-lg);
   color: var(--au-white) !important;
   font-weight: 500;
+  font-size: 14px;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
 }
 .hero-btn:hover {
-  background: #5a6877;
+  background: var(--au-primary-hover);
+  box-shadow: var(--au-shadow-md);
 }
 
 /* 边框按钮 */
 .hero-btn-outline {
   border: 1px solid var(--au-border);
-  padding: 8px 28px;
-  border-radius: 30px;
+  padding: 10px 28px;
+  border-radius: var(--au-radius-lg);
   background: transparent;
   color: var(--au-text-primary) !important;
+  font-size: 14px;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
 }
 .hero-btn-outline:hover {
   border-color: var(--au-primary);
   color: var(--au-primary) !important;
+  background: var(--au-primary-soft);
 }
 
 /* 数据统计 */
 .hero-stats {
   display: flex;
-  gap: 32px;
-  margin-top: 8px;
+  gap: 40px;
+}
+.stat-item {
+  text-align: center;
 }
 .stat-item .num {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 600;
   color: var(--au-text-primary);
+  display: block;
 }
 .stat-item .label {
-  font-size: 14px;
-  color: var(--au-text-secondary);
+  font-size: 13px;
+  color: var(--au-text-muted);
+  margin-top: 4px;
 }
 
 .hero-right {
@@ -112,32 +129,35 @@
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 .feature-card {
   background: var(--au-white);
   border-radius: var(--au-radius-card);
-  padding: 28px;
+  padding: 24px;
   box-shadow: var(--au-shadow-sm);
   text-align: center;
-  transition: transform 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid var(--au-border-light);
 }
 .feature-card:hover {
   transform: translateY(-2px);
+  box-shadow: var(--au-shadow-md);
 }
 .feature-card .icon {
-  font-size: 32px;
-  margin-bottom: 16px;
-  color: var(--au-primary);
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: var(--au-accent);
 }
 .feature-card h3 {
-  font-size: 20px;
-  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
   color: var(--au-text-primary);
 }
 .feature-card p {
   color: var(--au-text-secondary);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
 }
 
@@ -152,18 +172,18 @@
 .component-links {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 8px;
   flex-wrap: wrap;
 }
 .component-link {
   background: var(--au-bg);
-  padding: 6px 20px;
-  border-radius: 40px;
-  text-decoration: none;
-  color: var(--au-text-primary);
-  font-size: 14px;
-  transition: all 0.2s;
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-decoration: none !important;
+  color: var(--au-primary) !important;
+  font-size: 13px;
+  transition: all 0.2s ease;
 }
 .component-link:hover {
   background: var(--au-primary-soft);
@@ -171,16 +191,29 @@
 }
 .copyright {
   font-size: 12px;
-  color: var(--au-text-secondary);
+  color: var(--au-text-muted);
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
   .hero-inner {
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
+    text-align: center;
   }
   .hero-left h1 {
-    font-size: 32px !important;
+    font-size: 30px !important;
+  }
+  .hero-left p {
+    margin: 0 auto 20px !important;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-stats {
+    justify-content: center;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -4,58 +4,46 @@ layout: doc
 
 # AuSelectIcon elemnt-plus 图标选择组件
 
-### 基本使用
+### 简介
+
+图标选择器组件，提供弹窗形式的图标浏览和搜索功能。支持图标分类展示、关键字过滤，简化图标选择流程，适用于菜单配置、分类图标设置等场景。
+
+#### 基础用法
 
 :::demo
 AuSelectIcon/base
 :::
 
-### 是否显示弹窗搜索框
+#### 代码示例
 
-:::demo
+```html
+<au-select-icon v-model="icon" placeholder="请选择图标" />
+```
+
+### 基础功能
+
+:::demo 展示图标选择器的基本使用方式，点击输入框弹出图标选择弹窗
+AuSelectIcon/base
+:::
+
+### 搜索框显示功能
+
+:::demo 通过设置 `isShowSearch` 属性显示搜索框，支持关键字快速过滤图标
 AuSelectIcon/isShowSearch
 :::
 
-### 是否显示选中后的图标
+### 选中图标显示功能
 
-:::demo
+:::demo 通过设置 `isShowIcon` 属性在输入框中显示选中的图标预览
 AuSelectIcon/isShowIcon
 :::
 
-### selectBind 属性配置
+### 下拉框属性配置
 
-:::demo
+:::demo 通过 `selectBind` 属性配置下拉框的样式和行为，继承 el-select 所有属性
 AuSelectIcon/selectBind
 :::
 
-### AuSelectIcon Attributes
+### 组件配置
 
----
-
-### 1、代码示例
-
-```html
-<au-select-icon v-model="selectVlaue" />
-```
-
-### 2、配置参数（Attributes）继承 el-input Attributes
-
-| 参数         | 说明                 | 类型       | 默认值                                                                                                             |
-| :----------- | :------------------- | :--------- | :----------------------------------------------------------------------------------------------------------------- |
-| v-model      | 绑定值               | string     | -                                                                                                                  |
-| prefixIcon   | 输入框前缀 icon      | string     | Search                                                                                                             |
-| isShowSearch | 是否显示搜索图标     | Boolean    | true                                                                                                               |
-| isShowIcon   | 是否显示选中后的图标 | Boolean    | true                                                                                                               |
-| selectBind   | Attributes           | selectBind | `"prefix-icon": props.prefixIcon, placeholder: "请选择图标",dialogTitle:'请选择图标',clearable: true,width: "50%"` |
-
-### 3、事件（events）继承 el-input 属事件
-
-| 事件名 | 说明       | 回调参数            |
-| :----- | :--------- | :------------------ |
-| select | 选择完图标 | 返回选中的图标 name |
-
-### Exposes（Method）
-
-| Method    | 说明       |
-| :-------- | :--------- |
-| clearIcon | 重置选中项 |
+<au-select-icon-tabs />

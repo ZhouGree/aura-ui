@@ -4,105 +4,80 @@ layout: doc
 
 # AuDetail 详情组件
 
-### 基础用法
+### 简介
 
-:::demo
+详情数据结构化展示组件，支持多列布局、字典值自动转换和 Tooltip 超长内容提示。通过配置驱动详情渲染，快速构建数据查看页面，减少重复模板代码。
+
+#### 代码示例
+
+```html
+<au-detail :data-list="dataList" :label-width="120" />
+```
+
+#### 基础用法
+
+:::demo 展示详情组件的基本使用方式，通过配置 dataList 渲染详情信息
 AuDetail/base
 :::
 
-### 加边框
+### 基础功能
 
-:::demo
+:::demo 展示详情组件的基本使用方式，支持多列布局
+AuDetail/base
+:::
+
+### 边框样式
+
+:::demo 设置 `border` 属性显示边框，增强视觉分隔效果
 AuDetail/border
 :::
 
-### 每行展示多少项
+### 列数配置
 
-:::demo
+:::demo 通过 `descColumn` 属性配置每行显示的列数，支持 1-6 列
 AuDetail/descColumn
 :::
 
 ### 垂直布局
 
-:::demo
+:::demo 设置 `vertical` 属性启用垂直布局模式
 AuDetail/vertical
 :::
 
-### 插槽显示
+### 插槽自定义
 
-:::demo
+:::demo 通过 `slotName` 属性自定义详情项的内容渲染
 AuDetail/slotName
 :::
 
 ### 字典回显
 
-:::demo 需要配置：`listTypeInfo`和`dataList`
+:::demo 配置 `listTypeInfo` 实现字典值自动转换和回显
 AuDetail/echo
 :::
 
-### tooltip 显示
+### Tooltip 提示
 
-:::demo
+:::demo 超长内容自动显示 Tooltip 提示，提升用户体验
 AuDetail/tooltip
 :::
 
-### label 不显示冒号
+### Label 样式配置
 
-:::demo
+:::demo 设置 `isColon` 属性控制是否显示冒号
 AuDetail/isColon
 :::
 
-### label 文字不加粗
-
-:::demo
+:::demo 设置 `isLabelBold` 属性加粗显示标签文字
 AuDetail/isLabelBold
 :::
 
-### label render 显示
+### Label 渲染
 
-:::demo
+:::demo 通过 `labelRender` 属性使用 TSX 自定义标签渲染
 AuDetail/labelRender
 :::
 
-### AuDetail Attributes
+### 组件配置
 
----
-
-### 1、代码示例
-
-> `详情组件————可实现表单回显`
-
-```html
-<!-- 常规模式 -->
-<au-detail :descData="descData" />
-<!-- 字典回显模式 -->
-<au-detail :descData="descData" :dataList="dataList" :listTypeInfo=="listTypeInfo" />
-```
-
-### 2、配置参数（Attributes）继承 el-descriptions el-descriptions-item Attributes
-
-| 参数          | 说明                                               | 类型            | 默认值       |
-| :------------ | :------------------------------------------------- | :-------------- | :----------- |
-| descData      | 详情页面数据源                                     | Array           | -            |
-| ----label     | 详情字段说明标题                                   | String          | -            |
-| ----value     | 详情字段返回值                                     | String          | -            |
-| ----fieldName | value 返回值的字段                                 | String          | -            |
-| ----slotName  | 插槽（自定义 value）                               | slot            | -            |
-| ----bind      | 继承 el-descriptions-item 属性                     | Object          | -            |
-| ----span      | 占用的列宽，默认占用 1 列，最多 4 列               | Number          | 1            |
-| ----unit      | value 值后面占位（通常:单位）                      | String          | -            |
-| ----tooltip   | value 值的提示语                                   | String/function | -            |
-| ----iconSize  | tooltip 提示语的 icon 大小                         | String/Number   | 继承字体大小 |
-| ----iconColor | tooltip 提示语的 icon 颜色                         | String          | 继承颜色     |
-| ----filters   | 字典类型（即后台返回的是数字类型）过滤转成中文     | Object          | -            |
-| -------list   | 字典 list 定义的数据名即 listTypeInfo 里面对应的值 | String          | -            |
-| -------key    | 下拉数据源的 key 字段                              | String          | 'value'      |
-| -------label  | 下拉数据源的 label 字段                            | String          | 'label'      |
-| descColumn    | 布局一行显示几列（默认：一行显示 4 列）            | Number          | 4            |
-| isColon       | 是否显示冒号                                       | Boolean         | true         |
-| isLabelBold   | label 是否加粗显示                                 | Boolean         | true         |
-| labelRender   | 自定义 label                                       | function        | -            |
-| dataList      | 开启 filters 时详情接口返回的数据                  | Object          | {}           |
-| listTypeInfo  | 开启 filters 时下拉数据源                          | Object          | {}           |
-
-### 3、继承 el-descriptions events
+<au-detail-tabs />

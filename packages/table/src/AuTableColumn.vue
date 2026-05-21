@@ -1,14 +1,12 @@
 <template>
   <el-table-column
-    :prop="item.prop"
     :label="item.label"
-    :type="item.type"
     :align="item.align || align"
     :min-width="item['min-width'] || item.minWidth"
     :width="item.width"
     :fixed="item.fixed"
   >
-  <template #header v-if="item.renderHeader">
+    <template #header v-if="item.renderHeader">
       <render-header :column="item" :render="item.renderHeader" />
     </template>
     <template v-for="(val, index) of item.children">

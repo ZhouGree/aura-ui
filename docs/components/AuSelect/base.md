@@ -4,125 +4,76 @@ layout: doc
 
 # AuSelect 下拉选择组件
 
-### 单选
+### 简介
 
-:::demo
+大数据量下拉选择组件，内置虚拟滚动和分页加载策略，自动根据数据量选择最优渲染方式。支持多选跨页缓存、远程搜索，解决传统选择器大数据卡顿和跨页选中丢失问题。
+
+#### 代码示例
+
+```html
+<au-select v-model="value" :option-source="options" placeholder="请选择" />
+```
+
+#### 基础用法
+
+:::demo 展示单选下拉框的基本使用方式
 AuSelect/single
 :::
 
-### 自定义显示下拉项 label
+### 单选功能
 
-:::demo 设置 customLabel 字符串表达式：`${_item.label}（${_item.id}）`;注意：表达式必须以`_item`开头，且后面的属性必须存在`optionSource`中
-AuSelect/customLabel
-:::
-
-### 单选分页
-
-:::demo 在组件中配置：`isShowPagination` 及 `paginationOption`,`isCached`属性，默认`true`开启缓存，切换分页后会把上一页选中的数据，追加在当前页的数据中。
+:::demo 通过配置 `isShowPagination` 和 `paginationOption` 开启分页功能，`isCached` 属性默认为 true，切换分页后会缓存上一页选中的数据
 AuSelect/singePagination
 :::
 
-### 单选禁用
-
-:::demo 在组件中数据源：`optionSource` 不满足条件时，新增`disabled`属性，设置为`true`即可
+:::demo 当数据源中某些选项不可选时，设置 `disabled` 属性为 true 禁用该选项
 AuSelect/singleDisabled
 :::
 
-### 多选禁用
+### 多选功能
 
-:::demo 在组件中数据源：`optionSource` 不满足条件时，新增`disabled`属性，设置为`true`即可
-AuSelect/multipleDisabled
-:::
-
-### 多选
-
-:::demo
+:::demo 开启多选模式，支持选择多个选项
 AuSelect/multiple
 :::
 
-### 多选--隐藏多余标签的多选
-
-:::demo
+:::demo 多选模式下设置 `collapse-tags` 属性折叠已选标签，超出部分显示为 +N
 AuSelect/multipleCollapseTags
 :::
 
-### 多选分页
+:::demo 多选模式下设置 `disabled` 属性禁用不可选的选项
+AuSelect/multipleDisabled
+:::
 
-:::demo 在组件中配置：`isShowPagination` 及 `paginationOption`；**`多选不支持翻页选中功能`**，`isCached`属性，默认`true`开启缓存，切换分页后会把上一页选中的数据，追加在当前页的数据中。
+### 分页加载
+
+:::demo 配置 `isShowPagination` 和 `paginationOption` 开启分页功能，单选模式下支持跨页缓存选中项
 AuSelect/pagination
 :::
 
-### 虚拟列表--单选
+### 虚拟滚动
 
-:::demo 在组件中配置：`use-virtual` 即可
+:::demo 设置 `use-virtual` 属性开启虚拟滚动，适用于大数据量场景，提升渲染性能
 AuSelect/useVirtual
 :::
 
-### 虚拟列表--多选
-
-:::demo 在组件中配置：`use-virtual` 即可
+:::demo 多选模式下开启虚拟滚动，支持大数据量多选
 AuSelect/useVirtualMultiple
 :::
 
-### 虚拟列表--隐藏多余标签的多选
-
-:::demo
+:::demo 虚拟滚动配合标签折叠，优化多选大数据量场景的展示效果
 AuSelect/useVirtualCollapseTags
 :::
 
-### 选中值返回对象
+### 高级配置
 
-:::demo 在组件中配置：`returnObject` ；必须设置 `value-key` 属性且具有唯一性。支持多选
+:::demo 通过 `customLabel` 属性自定义选项显示格式，支持字符串表达式如 `${_item.label}（${_item.id}）`
+AuSelect/customLabel
+:::
+
+:::demo 设置 `returnObject` 属性返回完整对象而非值，需配合 `value-key` 使用，支持多选
 AuSelect/returnObject
 :::
 
-### AuSelect Attributes
+### 组件配置
 
----
-
-### 1、代码示例
-
-```html
-<au-select v-model="selectVlaue" :optionSource="state.stepList" />
-```
-
-### 2、配置参数（Attributes）继承 el-select&el-select-v2 Attributes
-
-| 参数             | 说明                                             | 类型                            | 默认值  |
-| :--------------- | :----------------------------------------------- | :------------------------------ | :------ |
-| v-model          | 绑定值                                           | boolean / string / number/Array | 无      |
-| multiple         | 是否多选                                         | Boolean                         | false   |
-| optionSource     | 下拉数据源                                       | Array                           | 无      |
-| customLabel      | 是否自定义设置下拉 label                         | String                          | -       |
-| valueCustom      | 传入的 option 数组中，要作为最终选择项的键值 key | String                          | 'key'   |
-| labelCustom      | 传入的 option 数组中，要作为显示项的键值名称     | String                          | 'label' |
-| useVirtual       | 是否开启虚拟列表(继承 el-select-v2 属性)         | Boolean                         | false   |
-| isShowPagination | 是否开启分页                                     | Boolean                         | false   |
-| paginationOption | 分页配置                                         | Object                          | -       |
-| returnObject     | 选中值是否返回对象必须设置`value-key`            | Boolean                         | false   |
-| isCached         | 分页是否开启缓存选中项                           | Boolean                         | true    |
-
-### 2-1、paginationOption 配置参数（Attributes）继承 el-pagination Attributes
-
-| 参数        | 说明                                                          | 类型   | 默认值                             |
-| :---------- | :------------------------------------------------------------ | :----- | :--------------------------------- |
-| currentPage | 当前页数                                                      | number | 1                                  |
-| pageSize    | 每页显示条目个数                                              | number | 6                                  |
-| pagerCount  | 设置最大页码按钮数。 页码按钮的数量，当总页数超过该值时会折叠 | number | 5                                  |
-| total       | 总条目数                                                      | number | 0                                  |
-| layout      | 组件布局，子组件名用逗号分隔                                  | string | 'total, prev, pager, next, jumper' |
-| bind        | el-pagination 属性                                            | Object | -                                  |
-
-### 3、继承 el-select&el-pagination&el-select-v2 events
-
-| 事件名       | 说明                 | 回调参数     |
-| :----------- | :------------------- | :----------- |
-| change       | 选中值发生变化时触发 | 返回选中的值 |
-| input        | 分页器输入框触发     | 返回输入的值 |
-| select-input | 选择输入框触发       | 返回输入的值 |
-
-### Exposes（Method）
-
-| Method | 说明       |
-| :----- | :--------- |
-| clear  | 重置选中项 |
+<au-select-tabs />

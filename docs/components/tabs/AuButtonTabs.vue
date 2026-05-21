@@ -1,6 +1,5 @@
 <template>
   <au-tabs :tabs="tabs">
-    <!-- 属性 -->
     <template #Attributes>
       <div class="api-table-wrapper">
         <p class="title">配置参数（Attributes）继承 el-button Attributes</p>
@@ -58,7 +57,7 @@
             </tr>
             <tr>
               <td>tip</td>
-              <td>提示文字，常用于 type="text" 或拥有 text，link 属性的 button</td>
+              <td>提示文字</td>
               <td>string</td>
               <td>-</td>
             </tr>
@@ -70,27 +69,35 @@
             </tr>
             <tr>
               <td>tipProps</td>
-              <td>Tooltip 组件的配置参数，详情可看 element-plus 官网</td>
+              <td>Tooltip 组件的配置参数</td>
               <td>object</td>
               <td>-</td>
             </tr>
           </tbody>
         </table>
-
-        <!-- placement 类型说明 -->
-        <div class="tip-block">
-          <p class="tip-title">placement 类型</p>
-          <p class="tip-content">
-            'top' / 'top-start' / 'top-end' / 'bottom' / 'bottom-start' / 'bottom-end' /
-            'left' / 'left-start' / 'left-end' / 'right' / 'right-start' / 'right-end'
-          </p>
-        </div>
       </div>
     </template>
 
-    <!-- 事件（你之后要加我也能直接帮你写） -->
     <template #Events>
-      <div class="empty-tip">暂无事件</div>
+      <div class="api-table-wrapper">
+        <p class="title">事件（Events）继承 el-button Events</p>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>事件名</th>
+              <th>说明</th>
+              <th>参数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>click</td>
+              <td>点击按钮时触发</td>
+              <td>event</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </template>
   </au-tabs>
 </template>

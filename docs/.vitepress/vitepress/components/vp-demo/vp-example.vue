@@ -11,26 +11,28 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount, shallowRef } from "vue"
+import { onBeforeMount, shallowRef, type Component } from "vue"
 
-const props: any = defineProps<{
+interface Props {
   path?: string
-}>()
+}
+
+const props = defineProps<Props>()
 
 // 创建一个跟踪自身 .value 变化的 ref，但不会使其值也变成响应式的。
-let dynamicComponent = shallowRef(null)
+const dynamicComponent = shallowRef<Component | null>(null)
 
-onBeforeMount(() => {
-  // 匹配到的文件默认是懒加载的，通过动态导入实现，并会在构建时分离为独立的 chunk。如果你倾向于直接引入所有的模块（例如依赖于这些模块中的副作用首先被应用），你可以传入 { eager: true } 作为第二个参数：
-  const modules = import.meta.glob(`../../../../examples/*/*.vue`, {
-    eager: true
-  })
+// 使用异步导入实现示例组件懒加载
+const modules = import.meta.glob(`../../../../examples/*/*.vue`) as Record<string, () => Promise<{ default: Component }>>
+
+onBeforeMount(async () => {
   // 动态加载示列组件
   for (const modulesKey in modules) {
-    const module = modules[modulesKey]
     // 找到example的组件，并加载
-    if (modulesKey.split(".vue")[0].endsWith(props.path)) {
+    if (modulesKey.split(".vue")[0].endsWith(props.path || '')) {
+      const module = await modules[modulesKey]()
       dynamicComponent.value = module.default
+      break
     }
   }
 })

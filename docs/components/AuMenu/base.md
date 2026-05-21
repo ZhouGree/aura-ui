@@ -4,24 +4,22 @@ layout: doc
 
 # AuMenu 菜单组件
 
-### 基础用法
+### 简介
 
-::: demo
+导航菜单组件，支持多级菜单、路由自动匹配和图标配置。简化菜单配置流程，自动处理菜单展开/收起状态，适用于后台管理系统侧边导航。
+
+#### 基础用法
+
+:::demo 展示菜单组件的基本使用方式，支持多级菜单和路由自动匹配
 AuMenu/base
 :::
 
 ### 权限过滤
 
-::: demo
+:::demo 通过权限配置过滤菜单，实现基于角色的菜单显示控制
 AuMenu/permission
 :::
 
-### Attributes
+### 组件配置
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
-| menuList | 菜单数据 | MenuItem[] | [] |
-| permissions | 权限码数组 | string[] | [] |
-| permissionKey | 权限字段名（meta） | string | permission |
-| defaultOpeneds | 默认展开菜单 | string[] | [] |
-| uniqueOpened | 是否保持只展开一个父菜单 | boolean | true |
+<AuMenuTabs />

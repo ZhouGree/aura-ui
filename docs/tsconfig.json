@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -11,12 +11,20 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "jsx": "preserve",
-    "types": [
-      // 用来指定需要包含的模块，并将其包含在全局范围内。
-      "element-plus/global",
-      "../packages/components.d.ts",
-      "../typings/index.d.ts",
-      "../global.d.ts",
-    ]
-  }
+    "types": [],
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "vue": ["../node_modules/vue"],
+      "vite/client": ["../node_modules/vite/client.d.ts"]
+    }
+  },
+  "include": [
+    "../packages/components.d.ts",
+    "../typings/index.d.ts",
+    "./**/*.vue",
+    "./**/*.ts"
+  ]
 }

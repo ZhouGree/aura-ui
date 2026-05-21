@@ -108,6 +108,7 @@ declare namespace TableTypes {
     renderHeader?: (...ags: any[]) => any; // 自定义表头
     render?: (...ags: any[]) => any; // 自定义列内容
     slotName?: string; // 自定义列内容插槽
+    slotNameMerge?: string; // 自定义列内容插槽(用于AuTableColumn)
     canEdit?: boolean; // 是否可编辑
     isClickEdit?: boolean; // 是否点击编辑
     isShowEditIcon?: boolean; // 是否显示编辑图标

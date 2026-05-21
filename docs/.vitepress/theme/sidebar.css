@@ -1,45 +1,84 @@
-/* 左侧侧边栏容器 */
+/* ==========================================
+   侧边栏样式 - 简洁舒适的统一设计
+   ========================================== */
+
+/* 侧边栏容器 */
 .VPSidebar {
   background-color: var(--au-white) !important;
   border-right: 1px solid var(--au-border) !important;
 }
-/* 分组标题样式 */
+
+/* 分组标题 */
 .VPSidebar .item h2 {
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 600 !important;
-  color: var(--au-text-primary) !important;
-  margin: 10px 0 4px 8px !important;
+  color: var(--au-text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin: 4px 0 2px 4px !important;
 }
-/* 菜单项样式 */
+
+/* 菜单项 */
 .VPSidebarItem {
   font-size: 14px !important;
-  color: red !important;
-  padding: 4px 8px !important;
-  border-radius: 2px !important;
-  margin: 1px 4px !important;
+  color: var(--au-text-secondary) !important;
+  padding: 3px 4px !important;
+  border-radius: var(--au-radius-sm) !important;
+  margin: 2px 4px !important;
+  transition: all 0.2s ease !important;
 }
+
+/* .VPSidebarItem:hover {
+  background-color: var(--au-primary-soft) !important;
+  color: var(--au-primary) !important; 
+} */
+
 .VPSidebarItem .items .item {
-  padding: 4px 8px !important;
-  border-radius: 2px !important;
-  margin: 1px 4px !important;
+  padding: 3px 4px 3px 16px !important;
+  border-radius: var(--au-radius-sm) !important;
+  margin: 2px 4px !important;
+  transition: all 0.2s ease !important;
 }
+
+.VPSidebarItem .items .item:hover {
+  background-color: var(--au-primary-soft) !important;
+}
+
 .VPSidebarItem .item p {
   color: var(--au-text-secondary) !important;
   font-size: 14px !important;
 }
-/* 选中态样式 */
-.VPSidebarItem.is-active .items .item {
-  background-color: var(--au-primary-soft) !important;
-  color: var(--au-primary) !important;
-  font-weight: 500 !important;
-}
+
+/* 选中态 */
 .VPSidebarItem.is-active {
   background-color: var(--au-primary-soft) !important;
 }
+
+.VPSidebarItem.is-active .items .item {
+  background-color: var(--au-primary-soft) !important;
+}
+
 .VPSidebarItem.is-active p {
   color: var(--au-primary) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
+
 .VPSidebarItem.is-active .item .indicator {
-  border-left: 4px solid var(--au-primary) !important;
+  border-left: 3px solid var(--au-primary) !important;
+}
+
+/* 深色模式 */
+html.dark .VPSidebar {
+  background-color: var(--au-white) !important;
+  border-right-color: var(--au-border) !important;
+}
+
+html.dark .VPSidebarItem {
+  color: var(--au-text-secondary) !important;
+}
+
+html.dark .VPSidebarItem:hover,
+html.dark .VPSidebarItem.is-active {
+  background-color: var(--au-primary-soft) !important;
+  color: var(--au-primary) !important;
 }
