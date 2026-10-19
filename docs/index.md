@@ -7,11 +7,11 @@ layout: home
     <div class="hero-left">
       <img src="/img/hero.jpg" alt="Aura-UI Logo" class="hero-logo">
       <div class="hero-badge">Vue3 组件库 · 中后台首选</div>
-      <h1>优雅 · 高效 · 类型安全</h1>
+      <h1>中后台业务型组件库</h1>
       <p>基于 Vue3 + TypeScript，提供 21 个开箱即用的业务组件，助力中后台系统快速落地。</p>
       <div class="hero-buttons">
-        <a href="/components/" class="hero-btn">开始使用</a>
-        <a href="/components/" class="hero-btn-outline">组件预览</a>
+        <a href="/aura-ui/components/" class="hero-btn">开始使用</a>
+        <a href="/aura-ui/components/AuButton/base" class="hero-btn-outline">组件预览</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item"><div class="num">20+</div><div class="label">核心组件</div></div>

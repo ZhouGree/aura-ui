@@ -1,16 +1,5 @@
 <template>
   <au-tabs :tabs="tabs">
-    <template #代码示例>
-      <div class="api-table-wrapper">
-        <pre class="language-html"><code class="language-html">&lt;au-query-condition
-  :opts="opts"
-  @submit="conditionEnter"
-  @handleEvent="handleEvent"
-  :loading="loading"
-/&gt;</code></pre>
-      </div>
-    </template>
-
     <template #配置参数>
       <div class="api-table-wrapper">
         <table class="api-table">
@@ -445,7 +434,6 @@
 
 <script setup lang="ts">
 const tabs = [
-  { key: "代码示例", title: "代码示例" },
   { key: "配置参数", title: "配置参数（Attributes）" },
   { key: "事件", title: "事件（events）" },
   { key: "Slots", title: "Slots" },

@@ -83,13 +83,13 @@ import "aura-ui/lib/style.css"
 <head>
   <!-- Import style -->
   <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css" />
-  <link rel="stylesheet" href="https://unpkg.com/@wocwin/t-ui-plus/lib/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aura-ui/lib/style.css" />
   <!-- Import Vue 3 -->
   <script src="https://unpkg.com/vue@3"></script>
   <!-- Import component library -->
   <script src="https://unpkg.com/element-plus"></script>
-  <!-- 3. 引入t-ui-plus的组件库 -->
-  <script src="https://unpkg.com/@wocwin/t-ui-plus@latest"></script>
+  <!-- 3. 引入aura-ui的组件库 -->
+  <script src="https://unpkg.com/aura-ui@latest"></script>
 </head>
 <body>
   <div id="app">

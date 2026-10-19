@@ -63,16 +63,19 @@ const getColumnSetCache = () => {
     localStorage.getItem(`au-ui-plus:AuTable.columnSet-${props.name || props.title}`) || "[]"
   let columnOption = initColumnSet()
   let valueArr = (JSON.parse(value) as any[]) || []
-  // console.log("getColumnSetCache---valueArr", valueArr)
+  
+  if (valueArr.length === 0) {
+    return columnOption
+  }
+  
   columnOption.map(item => {
     let findEle = valueArr.find(
       (ele: { label: any; prop: any }) => ele.label === item.label && ele.prop === item.prop
     )
     item.hidden = findEle ? findEle.hidden : false
   })
-  value = JSON.stringify(valueArr.length ? valueArr : columnOption)
-  // console.log("getColumnSetCache---", value)
-  return value ? JSON.parse(value) : initColumnSet()
+  
+  return columnOption
 }
 // 初始化
 const initColumnSet = () => {
@@ -88,7 +91,7 @@ const initColumnSet = () => {
 
 // 抛出事件
 const emits = defineEmits(["columnSetting"])
-const state = reactive({
+const state = reactive<{ columnSet: Column[] }>({
   columnSet: []
 })
 onMounted(() => {
@@ -117,19 +120,22 @@ const reSetColumnSet = () => {
 // checkbox改变选中状态
 const checkChanged = (checked: any, index: string | number) => {
   state.columnSet[index].hidden = !checked
-  let obj: any = {}
-  state.columnSet.map((val: { hidden: string }) => {
-    val.hidden in obj || (obj[val.hidden] = [])
-    obj[val.hidden].push(val.hidden)
+  let obj: Record<string, boolean[]> = {}
+  state.columnSet.map((val: Column) => {
+    const key = String(val.hidden)
+    if (!(key in obj)) {
+      obj[key] = []
+    }
+    obj[key].push(val.hidden!)
   })
-  if (obj.false.length < 2) {
-    state.columnSet.map((val: { hidden: any }, key: string | number) => {
+  if ((obj["false"]?.length || 0) < 2) {
+    state.columnSet.map((val: Column, key: string | number) => {
       if (!val.hidden) {
         state.columnSet[key].checkBoxDisabled = true
       }
     })
   } else {
-    state.columnSet.map((val: { hidden: any }, key: string | number) => {
+    state.columnSet.map((val: Column, key: string | number) => {
       if (!val.hidden) {
         state.columnSet[key].checkBoxDisabled = false
       }

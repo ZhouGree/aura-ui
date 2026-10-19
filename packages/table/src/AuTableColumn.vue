@@ -9,8 +9,8 @@
     <template #header v-if="item.renderHeader">
       <render-header :column="item" :render="item.renderHeader" />
     </template>
-    <template v-for="(val, index) of item.children">
-      <au-table-column v-if="val.children" :key="index" :item="val">
+    <template v-for="(val, index) of (item.children || [])">
+      <au-table-column v-if="val?.children" :key="index" :item="val">
         <template v-for="(index, name) in slots" v-slot:[name]="data">
           <slot :name="name" v-bind="data"></slot>
         </template>

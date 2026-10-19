@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "pageSize": 6,
+    "pages": 5,
+    "total": 27,
+    "pageNum": 5,
+    "sortNum": null,
+    "records": [
+      { "id": 28, "materialName": "石墨UHP450*2250-28（450*2550 UHP)" },
+      { "id": 29, "materialName": "石墨UHP450*2250-29（450*2550 UHP)" },
+      { "id": 30, "materialName": "石墨UHP450*2250-30（450*2550 UHP)" }
+    ]
+  }
+}

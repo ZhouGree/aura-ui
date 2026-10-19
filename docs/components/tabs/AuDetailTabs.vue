@@ -1,19 +1,5 @@
 <template>
   <au-tabs :tabs="tabs">
-    <!-- 代码示例 -->
-    <template #CodeExample>
-      <div class="api-table-wrapper">
-        <p class="title">代码示例</p>
-        <p class="desc">详情组件————可实现表单回显</p>
-        <div class="code-block">
-          <pre><code>&lt;!-- 常规模式 -->
-&lt;au-detail :descData="descData" /&gt;
-&lt;!-- 字典回显模式 -->
-&lt;au-detail :descData="descData" :dataList="dataList" :listTypeInfo=="listTypeInfo" /&gt;</code></pre>
-        </div>
-      </div>
-    </template>
-
     <!-- 配置参数 -->
     <template #Attributes>
       <div class="api-table-wrapper">
@@ -171,7 +157,6 @@
 
 <script setup lang="ts">
 const tabs = [
-  { key: "CodeExample", title: "代码示例" },
   { key: "Attributes", title: "配置参数" },
   { key: "Events", title: "Events" },
 ]

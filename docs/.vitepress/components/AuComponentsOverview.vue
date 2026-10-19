@@ -48,60 +48,60 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, markRaw } from 'vue'
 import { ArrowRight, Edit, Search, DataLine, Menu } from '@element-plus/icons-vue'
 
-const router = typeof window !== 'undefined' && window.__VITEPRESS__?.__useRouter?.()
+const router = typeof window !== 'undefined' && (window as any).__VITEPRESS__?.__useRouter?.()
 
 const categories = ref([
   {
     name: '基础表单组件',
     description: '最简单 → 最复杂，适合入门学习',
-    icon: Edit,
-    path: '/components/AuButton/base.html',
+    icon: markRaw(Edit),
+    path: '/aura-ui/components/AuButton/base',
     components: [
-      { name: 'AuButton', path: '/components/AuButton/base.html' },
-      { name: 'AuInput', path: '/components/AuInput/base.html' },
-      { name: 'AuRadio', path: '/components/AuRadio/base.html' },
-      { name: 'AuCheckbox', path: '/components/AuCheckbox/base.html' },
-      { name: 'AuForm', path: '/components/AuForm/base.html' },
-      { name: 'AuModuleForm', path: '/components/AuModuleForm/base.html' }
+      { name: 'AuButton', path: '/aura-ui/components/AuButton/base' },
+      { name: 'AuInput', path: '/aura-ui/components/AuInput/base' },
+      { name: 'AuRadio', path: '/aura-ui/components/AuRadio/base' },
+      { name: 'AuCheckbox', path: '/aura-ui/components/AuCheckbox/base' },
+      { name: 'AuForm', path: '/aura-ui/components/AuForm/base' },
+      { name: 'AuModuleForm', path: '/aura-ui/components/AuModuleForm/base' }
     ]
   },
   {
     name: '选择类组件',
     description: '基础选择 → 高级表格选择',
-    icon: Search,
-    path: '/components/AuSelectIcon/base.html',
+    icon: markRaw(Search),
+    path: '/aura-ui/components/AuSelectIcon/base',
     components: [
-      { name: 'AuSelectIcon', path: '/components/AuSelectIcon/base.html' },
-      { name: 'AuSelect', path: '/components/AuSelect/base.html' },
-      { name: 'AuSelectTable', path: '/components/AuSelectTable/base.html' },
-      { name: 'AuDatePicker', path: '/components/AuDatePicker/base.html' }
+      { name: 'AuSelectIcon', path: '/aura-ui/components/AuSelectIcon/base' },
+      { name: 'AuSelect', path: '/aura-ui/components/AuSelect/base' },
+      { name: 'AuSelectTable', path: '/aura-ui/components/AuSelectTable/base' },
+      { name: 'AuDatePicker', path: '/aura-ui/components/AuDatePicker/base' }
     ]
   },
   {
     name: '数据展示组件',
     description: '最简单 → 最复杂，适合深入学习',
-    icon: DataLine,
-    path: '/components/AuDetail/base.html',
+    icon: markRaw(DataLine),
+    path: '/aura-ui/components/AuDetail/base',
     components: [
-      { name: 'AuDetail', path: '/components/AuDetail/base.html' },
-      { name: 'AuTable', path: '/components/AuTable/base.html' },
-      { name: 'AuQueryCondition', path: '/components/AuQueryCondition/base.html' },
-      { name: 'AuAdaptivePage', path: '/components/AuAdaptivePage/base.html' }
+      { name: 'AuDetail', path: '/aura-ui/components/AuDetail/base' },
+      { name: 'AuTable', path: '/aura-ui/components/AuTable/base' },
+      { name: 'AuQueryCondition', path: '/aura-ui/components/AuQueryCondition/base' },
+      { name: 'AuAdaptivePage', path: '/aura-ui/components/AuAdaptivePage/base' }
     ]
   },
   {
     name: '布局导航组件',
     description: '最简单 → 最复杂，适合扩展学习',
-    icon: Menu,
-    path: '/components/AuBreadcrumb/base.html',
+    icon: markRaw(Menu),
+    path: '/aura-ui/components/AuBreadcrumb/base',
     components: [
-      { name: 'AuBreadcrumb', path: '/components/AuBreadcrumb/base.html' },
-      { name: 'AuTabs', path: '/components/AuTabs/base.html' },
-      { name: 'AuStepWizard', path: '/components/AuStepWizard/base.html' },
-      { name: 'AuDrawer', path: '/components/AuDrawer/base.html' }
+      { name: 'AuBreadcrumb', path: '/aura-ui/components/AuBreadcrumb/base' },
+      { name: 'AuTabs', path: '/aura-ui/components/AuTabs/base' },
+      { name: 'AuStepWizard', path: '/aura-ui/components/AuStepWizard/base' },
+      { name: 'AuDrawer', path: '/aura-ui/components/AuDrawer/base' }
     ]
   }
 ])

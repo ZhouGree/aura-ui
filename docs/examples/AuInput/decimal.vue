@@ -4,7 +4,7 @@
       <au-input
         placeholder="请输入数字（含小数点）"
         inputType="decimal"
-        :decimalLimit="4"
+        :decimalLimit="2"
         v-model="vlaue"
         @change="change"
       >

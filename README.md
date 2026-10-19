@@ -1,152 +1,90 @@
 # Aura-UI
 
-## 介绍
+基于 Vue3 + TypeScript 的中后台业务型组件库文档
 
-> 基于 vue3+ ts+ Element-plus 二次封装组件
+## 环境要求
 
-这是我在学习 Vue3 中基于[Element-plus](https://element-plus.org/zh-CN/) 二次封装基础组件文档，希望对你有用。可查看 [详细组件案例文档](https://zhougree.github.io/aura-ui/) 预览
+- Node.js >= 16.x
+- npm >= 8.x
 
-<p align="center">
-  <a href="https://github.com/vuejs/vue" target="_blank">
-    <img src="https://img.shields.io/badge/vue-3.2.36-brightgreen.svg" alt="vue3">
-  </a>
-  <a href="https://gitee.com/wocwin/t-ui-plus/stargazers" target="_blank">
-    <img src="https://gitee.com/wocwin/t-ui-plus/badge/star.svg?theme=dark" alt="aura-ui">
-  </a>
-   <a href="https://github.com/ZhouGree/aura-ui/stargazers" target="_blank">
-    <img src="https://img.shields.io/github/stars/wocwin/t-ui-plus.svg" alt="aura-ui">
-  </a>
-   <a href="https://www.npmjs.com/package/@wocwin/t-ui-plus" target="_blank">
-      <img alt="npm" src="https://img.shields.io/npm/v/@wocwin/t-ui-plus.svg" />
-    </a>
-</p>
+## 安装依赖
 
-## 动态效果图
-
-<img src="./README_GIF/TuiPlus__demo.gif">
-
-### 安装
-
-**建议您使用包管理器 ([pnpm](https://pnpm.io/)<el-tag  effect="dark">推荐</el-tag> ， [yarn](https://classic.yarnpkg.com/lang/en/)，[npm](https://www.npmjs.com/)) 安装 aura-ui**。
-
-```sh [pnpm]
-pnpm install aura-ui -S
+```bash
+npm install
 ```
 
-```sh [yarn]
-yarn add aura-ui
+## 运行项目
+
+### 文档开发模式
+
+```bash
+npm run docs:dev
 ```
 
-```sh [npm]
-npm install aura-ui    -S
+启动后访问 http://localhost:3300
+
+### 构建文档
+
+```bash
+npm run docs:build
 ```
 
-## 全局注册使用
+构建产物在 `docs/.vitepress/dist` 目录
 
-> ### 前提条件：使用项目必须全局注册 Element-plus 组件库
+### 构建组件库
 
-```js
-// 在main.js中按下引入
-import { createApp } from "vue"
-import App from "./App.vue"
-import ElementPlus from "element-plus"
-import "element-plus/dist/index.css"
-import "element-plus/theme-chalk/dark/css-vars.css"
-import locale from "element-plus/es/locale/lang/zh-cn"
-// element-plus图标
-import * as ElementPlusIconsVue from "@element-plus/icons-vue"
-import AuraUI from "aura-ui"
-import "aura-ui/lib/style.css"
-const app = createApp(App)
-// 注册所有图标
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component)
-}
-// 注册ElementPlus
-app.use(ElementPlus, {
-  locale // 语言设置
-  // size: Cookies.get('size') || 'medium' // 尺寸设置
-})
-app.use(AuraUI)
-app.mount("#app")
+```bash
+npm run lib
 ```
 
-## 按需引入
+构建产物在 `lib` 目录
 
-```js
-// 在main.js中按下引入
-import "aura-ui/lib/style.css"
-// 单个.vue文件引入
-;<script setup lang="ts">
-  import {(AuraDetail, AuraForm)} from "aura-ui"
-</script>
+## 项目结构
+
+```
+├── docs/                      # 文档目录
+│   ├── .vitepress/           # VitePress 配置
+│   ├── components/           # 组件文档
+│   └── examples/             # 组件示例
+├── packages/                  # 组件源码
+│   ├── button/
+│   ├── select/
+│   └── ...
+└── lib/                       # 组件库构建产物
 ```
 
-## 浏览器直接引入 Use CDN in Project(v1.5.0 支持)--建议使用 pnpm 安装使用
+## 组件列表
 
-> 浏览器直接引入组件库，属性`驼峰命名`必须转换为短横线,直接通过浏览器的 HTML 标签导入 `aura-ui`，然后就可以使用全局变量 `AuraUI` 了
+| 组件             | 说明           |
+| ---------------- | -------------- |
+| AuButton         | 按钮组件       |
+| AuInput          | 输入框组件     |
+| AuSelect         | 下拉选择组件   |
+| AuSelectIcon     | 图标选择组件   |
+| AuSelectTable    | 表格选择组件   |
+| AuTable          | 表格组件       |
+| AuForm           | 表单组件       |
+| AuModuleForm     | 模块表单组件   |
+| AuDatePicker     | 日期选择器组件 |
+| AuDetail         | 详情组件       |
+| AuTabs           | 标签页组件     |
+| AuBreadcrumb     | 面包屑组件     |
+| AuStepWizard     | 步骤向导组件   |
+| AuDrawer         | 抽屉组件       |
+| AuQueryCondition | 查询条件组件   |
+| AuQueryTable     | 查询表格组件   |
+| AuAdaptivePage   | 自适应页面组件 |
+| AuMenu           | 菜单组件       |
+| AuCheckbox       | 多选框组件     |
+| AuRadio          | 单选框组件     |
 
-```html
-<head>
-  <!-- Import style -->
-  <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css" />
-  <link rel="stylesheet" href="https://unpkg.com/@wocwin/t-ui-plus/lib/style.css" />
-  <!-- Import Vue 3 -->
-  <script src="https://unpkg.com/vue@3"></script>
-  <!-- Import component library -->
-  <script src="https://unpkg.com/element-plus"></script>
-  <!-- 3. 引入aura-ui的组件库 -->
-  <script src="https://unpkg.com/@wocwin/t-ui-plus@latest"></script>
-</head>
-<body>
-  <div id="app">
-    <au-input
-      placeholder="请输入金额"
-      input-type="amount"
-      show-thousands
-      v-model="value"
-    ></au-input>
-  </div>
-  <script>
-    const app = Vue.createApp({
-      data() {
-        return {
-          value: ""
-        }
-      }
-    })
-    app.mount("#app")
-  </script>
-</body>
-```
+## 在线文档
 
-## 全部组件如下
+https://zhougree.github.io/aura-ui/
 
-| 组件名称                  | 说明                                                                                                                                                           |
-| :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AuLayoutPage              | 布局页面                                                                                                                                                       |
-| AuLayoutPageItem          | 布局页面子项                                                                                                                                                   |
-| AuAdaptivePage            | [一屏组件](https://zhougree.github.io/aura-ui/components/AuAdaptivePage/base.html?_blank)（继承 AuTable 及 AuQueryCondition 组件的所有属性、事件、插槽、方法） |
-| AuQueryCondition          | [条件查询组件](https://zhougree.github.io/aura-ui/components/AuQueryCondition/base.html?_blank)                                                                |
-| AuTable                   | [表格组件](https://zhougree.github.io/aura-ui/components/AuTable/base.html?_blank)                                                                             |
-| Virtualized AuTable       | [虚拟列表](https://zhougree.github.io/aura-ui/components/AuTableVirtual/base.html?_blank)                                                                      |
-| AuForm                    | [表单组件](https://zhougree.github.io/aura-ui/components/AuForm/base.html?_blank)                                                                              |
-| AuSelectTable             | [下拉选择表格组件](https://zhougree.github.io/aura-ui/components/AuSelectTable/base.html?_blank)                                                               |
-| Virtualized AuSelectTable | [下拉选择虚拟表格组件](https://zhougree.github.io/aura-ui/components/multipleVirtual/base.html?_blank)                                                         |
-| AuSelectIcon              | [图标选择组件](https://zhougree.github.io/aura-ui/components/AuSelectIcon/base.html?_blank)                                                                    |
-| AuSelect                  | [下拉选择组件](https://zhougree.github.io/aura-ui/components/AuSelect/base.html?_blank)                                                                        |
-| AuDetail                  | [详情组件](https://zhougree.github.io/aura-ui/components/AuDetail/base.html?_blank)                                                                            |
-| AuButton                  | [防抖按钮组件](https://zhougree.github.io/aura-ui/components/AuTable/base.html?_blank)                                                                         |
-| AuStepWizard              | [步骤条组件](https://zhougree.github.io/aura-ui/components/AuStepWizard/base.html?_blank)                                                                      |
-| AuTimerBtn                | 定时按钮组件                                                                                                                                                   |
-| AuModuleForm              | [模块表单/详情组件](https://zhougree.github.io/aura-ui/components/AuModuleForm/base.html?_blank)                                                               |
-| AuDatePicker              | [日期选择器组件](https://zhougree.github.io/aura-ui/components/AuDatePicker/base.html?_blank)                                                                  |
-| AuRadio                   | [单选组件](https://zhougree.github.io/aura-ui/components/AuRadio/base.html?_blank)                                                                             |
-| AuCheckbox                | [多选组件](https://zhougree.github.io/aura-ui/components/AuCheckbox/base.html?_blank)                                                                          |
-| AuTabs                    | [标签页组件](https://zhougree.github.io/aura-ui/components/AuTabs/base.html?_blank)                                                                            |
-| AuSelectIcon              | [图标选择组件](https://zhougree.github.io/aura-ui/components/AuSelectIcon/base.html?_blank)                                                                    |
+## License
 
-## aura-ui Volar 组件类型提示
+MIT Volar 组件类型提示
 
 ```js
 // 需要在使用的项目的tsconfig.json文件中添加以下
@@ -192,7 +130,7 @@ npm run docs:dev
 ## Thanks to all the contributors
 
 <a href="https://github.com/ZhouGree/aura-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=wocwin/t-ui-plus" alt="contributors" />
+  <img src="https://contrib.rocks/image?repo=ZhouGree/aura-ui" alt="contributors" />
 </a>
 
 ## Git 提交规范

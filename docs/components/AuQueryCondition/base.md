@@ -8,6 +8,17 @@ layout: doc
 
 条件查询栏组件，基于 CSS Grid 实现响应式栅格布局，支持每行 1-6 列配置。支持条件收起/展开、全局回车查询、动态添加条件，快速构建列表页筛选区。
 
+#### 代码示例
+
+```html
+<au-query-condition
+  :opts="opts"
+  @submit="conditionEnter"
+  @handleEvent="handleEvent"
+  :loading="loading"
+/>
+```
+
 #### 基础用法
 
 :::demo 展示查询条件组件的基本使用方式，支持响应式布局

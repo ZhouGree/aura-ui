@@ -9,7 +9,7 @@
       </template>
 
       <au-menu-item
-        v-for="child in menuItem.children"
+        v-for="child in (menuItem.children || [])"
         :key="child.path"
         :menu-item="child"
         :permissions="permissions"

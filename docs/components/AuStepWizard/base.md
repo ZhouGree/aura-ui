@@ -10,15 +10,24 @@ layout: doc
 
 #### 基础用法
 
-:::demo 展示步骤向导的基本使用方式，引导用户按步骤完成流程
+:::demo 展示步骤向导的基本使用方式，引导用户按步骤完成流程，支持步骤导航和切换
 AuStepWizard/base
 :::
 
-### 基础功能
+#### 代码示例
 
-:::demo 展示步骤向导的基本使用方式，支持步骤导航和切换
-AuStepWizard/base
-:::
+```html
+<au-step-wizard
+  :stepData="stepData"
+  :active="active"
+  :successTitle="successTitle"
+  @complete="complete"
+>
+  <template #first>第一步骤</template>
+  <template #second>第二步骤</template>
+  <template #third>第三步骤</template>
+</au-step-wizard>
+```
 
 ### 垂直步骤条
 

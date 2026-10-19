@@ -498,7 +498,7 @@ const getMenuData = async () => {
           activeMenu: item.activeMenu,
           isShowLink: item.isShowLink === "1"
         },
-        children: item.children
+        children: item.children || []
       }
     })
     arr.push(menu)

@@ -1,20 +1,5 @@
 <template>
   <au-tabs :tabs="tabs">
-    <template #代码示例>
-      <div class="api-table-wrapper">
-        <p class="title">基于 Element-plus el-steps el-step 步骤条组件的二次封装，着重于数据层面，HTML 一行代码</p>
-        <pre class="language-html"><code class="language-html">&lt;au-step-wizard
-  :stepData="stepData"
-  :active="active"
-  :successTitle="successTitle"
-  @complete="complete"
-&gt;
-  &lt;template #first&gt;第一步骤&lt;/template&gt;
-  .....
-&lt;/au-step-wizard&gt;</code></pre>
-      </div>
-    </template>
-
     <template #配置参数>
       <div class="api-table-wrapper">
         <p class="title">继承 element-plus el-steps/el-step 提供的属性</p>
@@ -166,7 +151,6 @@
 
 <script setup lang="ts">
 const tabs = [
-  { key: "代码示例", title: "简介与代码示例" },
   { key: "配置参数", title: "配置参数（Attributes）" },
   { key: "events", title: "events" },
 ]

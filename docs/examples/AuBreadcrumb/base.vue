@@ -8,7 +8,7 @@
 const items = [
   { path: "/aura-ui/", label: "首页" },
   { path: "/aura-ui/components/", label: "组件" },
-  { path: "/aura-ui/components/AuBreadcrumb/base.html", label: "面包屑" },
+  { path: "/aura-ui/components/AuBreadcrumb/base", label: "面包屑" },
 ];
 
 // 点击跳转逻辑

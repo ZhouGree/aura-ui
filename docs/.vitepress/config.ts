@@ -9,8 +9,8 @@ export default defineConfig({
   base: "/aura-ui/",
   lastUpdated: true,
   head: [
-    // 修复 favicon 404：确保 public/img/favicon.ico 存在
-    ['link', { rel: 'icon', href: '/img/favicon.ico' }],
+    // favicon：head 里的绝对路径不会自动拼接 base，必须手写 /aura-ui/ 前缀，否则 404 后浏览器回退显示缓存旧图标
+    ['link', { rel: 'icon', type: 'image/png', href: '/aura-ui/img/favicon.png' }],
     // 修复 CDN 跟踪拦截：换用 cdnjs
     ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css' }]
   ],

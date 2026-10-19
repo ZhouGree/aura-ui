@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "pageSize": 6,
+    "pages": 5,
+    "total": 27,
+    "pageNum": 4,
+    "sortNum": null,
+    "records": [
+      { "id": 22, "materialName": "石墨UHP450*2250-22（450*2550 UHP)" },
+      { "id": 23, "materialName": "石墨UHP450*2250-23（450*2550 UHP)" },
+      { "id": 24, "materialName": "石墨UHP450*2250-24（450*2550 UHP)" },
+      { "id": 25, "materialName": "石墨UHP450*2250-25（450*2550 UHP)" },
+      { "id": 26, "materialName": "石墨UHP450*2250-26（450*2550 UHP)" },
+      { "id": 27, "materialName": "石墨UHP450*2250-27（450*2550 UHP)" }
+    ]
+  }
+}

@@ -58,7 +58,7 @@ const filterMenu = (list: MenuItem[]) => {
       const children = item.children ? filterMenu(item.children) : undefined
       return { ...item, children }
     })
-    .filter(item => !item.children || item.children.length > 0 || !item.children)
+    .filter(item => !item.children || item.children?.length > 0)
 }
 
 const filteredMenuList = computed(() => filterMenu(props.menuList))

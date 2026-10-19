@@ -44,7 +44,8 @@
           :layout="paginationOption.layout || 'total, prev, pager, next, jumper'"
           :pager-count="paginationOption.pagerCount"
           :total="paginationOption.total"
-          @input.stop="(e: any) => emits('input', e.target.value)"
+          @current-change="handleCurrentChange"
+          @size-change="handleSizeChange"
           v-bind="{
             size: 'small',
             background: true,

@@ -38,7 +38,7 @@
             v-if="columnSetting && !isTableHeader"
             v-bind="$attrs"
             :title="title || tableTitle"
-            :columns="renderColumns"
+            :columns="props.columns as any"
             ref="columnSetRef"
             @columnSetting="v => (state.columnSet = v)"
           />
@@ -51,16 +51,19 @@
     <el-table
       ref="AuTable"
       :data="state.tableData"
-      :class="{
-        cursor: isCopy,
-        row_sort: isRowSort,
-        row_sort_none: isRowSortIcon,
-        tree_style: isTree,
-        highlightCurrentRow: highlightCurrentRow,
-        radioStyle: radioStyleClass,
-        multile_head_column: isTableHeader,
-        au_table_use_virtual: useVirtual
-      }"
+      :class="[
+        {
+          cursor: isCopy,
+          row_sort: isRowSort,
+          row_sort_none: isRowSortIcon,
+          tree_style: isTree,
+          highlightCurrentRow: highlightCurrentRow,
+          radioStyle: radioStyleClass,
+          multile_head_column: isTableHeader,
+          au_table_use_virtual: useVirtual
+        },
+        'au-table-scroll-sync'
+      ]"
       v-bind="{ ...$attrs, columns: undefined }"
       :highlight-current-row="highlightCurrentRow"
       :border="border || table.border || isTableBorder || useVirtual"
@@ -193,10 +196,10 @@
       </template>
       <!-- 主体内容 -->
       <template v-for="(item, index) in renderColumns">
-        <template v-if="!item.children">
+        <template v-if="item && !item.children">
           <!-- 常规列 -->
           <el-table-column
-            v-if="typeof item.isShowCol == 'function' ? item.isShowCol(item) : !item.isShowCol"
+            v-if="typeof item?.isShowCol == 'function' ? item.isShowCol(item) : !item?.isShowCol"
             :key="index + 'i'"
             :type="item.type"
             :label="item.label"
@@ -421,6 +424,10 @@ let state = reactive({
   columnSet: [],
   copyTableData: [] // 键盘事件
 })
+// 表头滚动同步处理器
+let headerScrollHandler: ((e: any) => void) | null = null
+// 用于存储滚动容器引用
+let scrollContainerRef: HTMLElement | null = null
 // 单选框
 const radioVal = ref<number | any>("")
 // 判断单选选中及取消选中
@@ -485,17 +492,15 @@ watch(
     }
   }
 )
-onMounted(() => {
-  // console.log('onMounted', props.table.firstColumn)
-  // 设置默认选中项（单选）
-  if (props.defaultRadioCol) {
-    defaultRadioSelect(props.defaultRadioCol)
-  }
-  initSort()
+// 移除滚动事件
+onBeforeUnmount(() => {
   if (props.useVirtual) {
-    saveDATA.value = props.table.data
-    getDom()
-    scrollContainerEl.value?.addEventListener("scroll", handleScroll)
+    scrollContainerEl.value?.removeEventListener("scroll", handleScroll)
+  }
+  if (headerScrollHandler) {
+    const tableEl = AuTable.value?.$el
+    const scrollContainer = tableEl?.parentElement
+    scrollContainer?.removeEventListener('scroll', headerScrollHandler)
   }
 })
 // 更新实际渲染数据
@@ -522,13 +527,91 @@ const handleScroll = (e: any) => {
   updateRenderData(e.target.scrollTop)
   // console.log("滚动事件---handleScroll")
 }
-// 移除滚动事件
-onBeforeUnmount(() => {
-  // console.log("移除滚动事件")
+onMounted(() => {
+  // 设置默认选中项（单选）
+  if (props.defaultRadioCol) {
+    defaultRadioSelect(props.defaultRadioCol)
+  }
+  initSort()
+  
   if (props.useVirtual) {
-    scrollContainerEl.value?.removeEventListener("scroll", handleScroll)
+    saveDATA.value = props.table.data
+    getDom()
+    scrollContainerEl.value?.addEventListener("scroll", handleScroll)
+  }
+  
+  // 表头滚动同步 - 通过外层容器控制
+  const tableEl = AuTable.value?.$el
+  if (tableEl) {
+    const headerWrapper = tableEl.querySelector('.el-table__header-wrapper')
+    const bodyWrapper = tableEl.querySelector('.el-table__body-wrapper')
+    const scrollContainer = tableEl.parentElement
+    
+    if (headerWrapper && bodyWrapper && scrollContainer) {
+      scrollContainerRef = scrollContainer
+      // 监听外层容器滚动
+      headerScrollHandler = (e: any) => {
+        const scrollLeft = (e.target as HTMLElement).scrollLeft
+        ;(headerWrapper as HTMLElement).scrollLeft = scrollLeft
+        ;(bodyWrapper as HTMLElement).scrollLeft = scrollLeft
+      }
+      scrollContainer.addEventListener('scroll', headerScrollHandler)
+      
+      // 初始化时立即同步一次宽度
+      setTimeout(() => {
+        syncColumnWidths(headerWrapper as HTMLElement, bodyWrapper as HTMLElement)
+      }, 0)
+    }
   }
 })
+
+/**
+ * 同步表头和表身的列宽度
+ */
+const syncColumnWidths = (headerWrapper: HTMLElement, bodyWrapper: HTMLElement) => {
+  const headerTable = headerWrapper.querySelector('table')
+  const bodyTable = bodyWrapper.querySelector('table')
+  
+  if (!headerTable || !bodyTable) return
+  
+  const headerCells = headerTable.querySelectorAll('th')
+  const bodyRows = bodyTable.querySelectorAll('tr')
+  
+  if (headerCells.length === 0) return
+  
+  // 获取最大列宽
+  const columnWidths: number[] = []
+  headerCells.forEach((cell, index) => {
+    let maxWidth = (cell as HTMLElement).offsetWidth
+    
+    bodyRows.forEach((row) => {
+      const bodyCell = row.querySelectorAll('td')[index]
+      if (bodyCell) {
+        maxWidth = Math.max(maxWidth, (bodyCell as HTMLElement).offsetWidth)
+      }
+    })
+    
+    columnWidths.push(maxWidth)
+  })
+  
+  // 设置列宽
+  headerCells.forEach((cell, index) => {
+    if (columnWidths[index]) {
+      ;(cell as HTMLElement).style.width = `${columnWidths[index]}px`
+      ;(cell as HTMLElement).style.minWidth = `${columnWidths[index]}px`
+    }
+  })
+  
+  bodyRows.forEach((row) => {
+    const bodyCells = row.querySelectorAll('td')
+    bodyCells.forEach((cell, index) => {
+      if (columnWidths[index]) {
+        ;(cell as HTMLElement).style.width = `${columnWidths[index]}px`
+        ;(cell as HTMLElement).style.minWidth = `${columnWidths[index]}px`
+      }
+    })
+  })
+}
 onUpdated(() => {
   AuTable.value.doLayout()
 })
@@ -596,16 +679,18 @@ const renderColumns = computed(() => {
     acc[cur.prop] = cur
     return acc
   }, {})
-  return state.columnSet.filter((cur: any) => !cur.hidden).map((cur: any) => columnByProp[cur.prop])
+  return state.columnSet
+    .filter((cur: any) => !cur.hidden && columnByProp[cur.prop])
+    .map((cur: any) => columnByProp[cur.prop])
 })
 
 // 判断是否是多级表头
 const isTableHeader = computed(() => {
-  return renderColumns.value.some((item: any) => item.children)
+  return renderColumns.value.some((item: any) => item?.children)
 })
 // 判断如果有表头合并就自动开启单元格缩放
 const isTableBorder = computed(() => {
-  return props.columns.some((item: any) => item.children)
+  return props.columns.some((item: any) => item?.children)
 })
 // 单元格编辑键盘事件
 const handleKeyup = (event: { keyCode: number }, index: number, key: string) => {
@@ -1302,6 +1387,23 @@ defineExpose({
     }
   }
 
+  // 表头和数据区滚动同步 - 使用外层容器统一控制
+  .au-table-scroll-sync {
+    overflow: hidden;
+    
+    :deep(.el-table__header-wrapper) {
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      width: 100%;
+    }
+    
+    :deep(.el-table__body-wrapper) {
+      overflow-x: auto !important;
+      overflow-y: auto !important;
+      width: 100%;
+    }
+  }
+
   .el-table--scrollable-y .el-table__body-wrapper {
     overflow-x: auto;
   }
@@ -1335,6 +1437,22 @@ defineExpose({
 .oper_more_dropdown_menu {
   .el-dropdown-menu__item {
     padding: 5px 16px;
+  }
+}
+/* 表格表头和数据区滚动同步 - 全局样式 */
+.au-table-scroll-sync {
+  overflow: hidden;
+  
+  .el-table__header-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+  }
+  
+  .el-table__body-wrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
   }
 }
 </style>

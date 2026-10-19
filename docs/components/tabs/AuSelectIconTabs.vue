@@ -1,15 +1,5 @@
 <template>
   <au-tabs :tabs="tabs">
-    <!-- 代码示例 -->
-    <template #CodeExample>
-      <div class="api-table-wrapper">
-        <p class="title">代码示例</p>
-        <div class="code-block">
-          <pre><code>&lt;au-select-icon v-model="selectVlaue" /&gt;</code></pre>
-        </div>
-      </div>
-    </template>
-
     <!-- 配置参数 -->
     <template #Attributes>
       <div class="api-table-wrapper">
@@ -107,7 +97,6 @@
 
 <script setup lang="ts">
 const tabs = [
-  { key: "CodeExample", title: "代码示例" },
   { key: "Attributes", title: "配置参数" },
   { key: "Events", title: "Events" },
   { key: "Methods", title: "Methods" },

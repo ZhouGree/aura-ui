@@ -20,6 +20,9 @@
 import { onMounted, ref } from "vue"
 import data from "./data.json"
 import data1 from "./data1.json"
+import data2 from "./data2.json"
+import data3 from "./data3.json"
+import data4 from "./data4.json"
 const selectVlaue = ref<any>()
 const stepList = ref([])
 const paginationOption = ref({
@@ -33,10 +36,24 @@ onMounted(() => {
 })
 const getList = async pageNum => {
   let res
-  if (pageNum === 1) {
-    res = await data
-  } else {
-    res = await data1
+  switch(pageNum) {
+    case 1:
+      res = await data
+      break
+    case 2:
+      res = await data1
+      break
+    case 3:
+      res = await data2
+      break
+    case 4:
+      res = await data3
+      break
+    case 5:
+      res = await data4
+      break
+    default:
+      res = await data
   }
   if (res.success) {
     stepList.value = res.data.records
